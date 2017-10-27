@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+>
+	<!--
+		DataSource, usually will be a connection pool object
+		Database specific connection information should be obtained from a property file so
+		a <context:property-placeholder location="classpath:system.properties"/> should be
+		defined on a root xml file
+	-->
+
+	<bean id="dataSource_sol" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${sol.database.driverClassName}" />
+		<property name="url" value="${sol.database.url}"/>
+
+		<property name="username" value="${sol.database.username}"/>
+		<property name="password" value="${sol.database.password}"/>
+
+		<property name="initialSize" value="3" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+	</bean>
+
+	<alias alias="dataSource_n4_" name="dataSource_sol" />
+	<alias alias="dataSource_veh_" name="dataSource_sol" />
+
+	<bean id="dataSource_n4" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${sol.n4.database.driverClassName}" />
+		<property name="url" value="${sol.n4.database.url}"/>
+
+		<property name="username" value="${sol.n4.database.username}"/>
+		<property name="password" value="${sol.n4.database.password}"/>
+
+		<property name="initialSize" value="3" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+	</bean>
+
+	<bean id="dataSource_veh" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${sol.veh.database.driverClassName}" />
+		<property name="url" value="${sol.veh.database.url}"/>
+
+		<property name="username" value="${sol.veh.database.username}"/>
+		<property name="password" value="${sol.veh.database.password}"/>
+
+		<property name="initialSize" value="3" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+	</bean>
+	
+	<bean id="dataSource_ccg" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${sol.ccg.database.driverClassName}" />
+		<property name="url" value="${sol.ccg.database.url}"/>
+
+		<property name="username" value="${sol.ccg.database.username}"/>
+		<property name="password" value="${sol.ccg.database.password}"/>
+
+		<property name="initialSize" value="3" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+	</bean>
+</beans>

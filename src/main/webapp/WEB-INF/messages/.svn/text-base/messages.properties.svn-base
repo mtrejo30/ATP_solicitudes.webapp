@@ -1,0 +1,446 @@
+#Titles page
+Login=Inicio de Sesion
+Main=Página Principal
+
+#Header 
+application.title=Altamira Terminal Portuaria - Sistema de Solicitudes de Operaciones
+
+#Footer
+company.copyright=Derechos Reservados 2014 / Altamira Terminal Portuaria
+Designed.development=Diseñado y desarrollado por
+
+Welcome=Bienvenido
+Logoff=Cerrar Sesión
+Change_password=Cambiar contraseña
+
+#Login Screen
+Sign_In=Entrar
+Username=Usuario
+Password=Password
+Login=Iniciar Sesion
+_No_Selection_=-- Sin Selección --
+Login_failed=Registro inválido
+Error_in_login_process=Error en el proceso de registro
+UserN4_is_not_on_the_system_or_has_credit_issues=UsuarioN4 no está en el sistema o no tiene crédito
+UserN4_is_not_on_the_system=El usuario N4 no está en el sistema
+UserN4_has_credit_issues=El usuario N4 no tiene crédito
+
+#Main screen
+Home_page = Pagina de Inicio
+send_note = Enviar nota
+current_notes = Sus Notas
+note_sent = Nota enviada
+notes_deleted = Notas borradas
+target = Para
+Select_target = Selecciona un destinatario
+title = Titulo
+message = Mensaje
+new_note = Nueva nota
+delete_notes= Eliminar notas
+from = de:
+note_Information = Informacion de la nota
+newNote.titleLength = El titulo de la nota debe contener de 3 a 10 caracteres
+newNote.contentLength = La nota debe contener de 3 a 80 caracteres
+
+#New password screen
+new_password_page = Nueva contraseña
+change_password = Cambiar
+password_must_change = Cambio de contraseña requerido
+
+#Bitacora screen
+Activity_Log=Bitácora
+Initial_Date=Fecha Inicial
+Final_Date=Fecha Final
+Action=Acción
+Ip=Ip
+Information=Información
+Date=Fecha
+User=Usuario
+
+#Users screen
+User_Admin=Administrar Usuarios
+Edit_User=Editar Usuarios
+User_Id=Id
+User_Name=Usuario
+first_Name=Nombre
+last_Name=Apellido
+Status=Status
+Role=Rol
+Profile=Perfil
+Report_level=Nivel de Acceso
+Email=Email
+Confirm_Password=Confirmar Password 
+Select_Role= -Seleccionar-
+Select_Status= -Seleccionar-
+EditUser=Editar
+SaveUser=Guardar Usuario
+DeleteUser=Borrar
+NewUser=Nuevo
+User_must_have_a_company_defined=El usuario debe tener una empresa definida
+User_must_have_a_N4_user_defined=El usuario debe tener un usuario N4 definido
+User_passwords_does_not_match=Contraseñas del usuario no coinciden
+User_password_must_be_defined=La contraseña del usuario debe definirse
+User_password_must_be_greather_than_eight_characters=La contraseña debe ser mayor a 8 caractereres
+User_must_have_a_status_defined=El usuario debe tener un estado definido
+User_must_have_a_profile_defined=El usuario debe tener un perfil definido
+User_must_have_a_report_access_level_defined=El usuario debe tener un nivel de acceso definido
+Cannot_delete_logged_user=No se puede borrar el usuario registrado en la sesión
+User_saved=Usuario grabado
+User_deleted=Usuario borrado
+confirm_delete_user=¿Está seguro de borrar al usuario seleccionado?
+No_user_selected=No hay usuario seleccionado
+User_Information=Información del Usuario
+Error_while_updating_user=Error al actualizar usuario
+UserN4=Usuario N4
+Company=Empresa
+UserN4_already_exists=El Usuario N4 se ha registrado con otro usuario
+
+#Login Validation Messages
+NotEmpty.LoginForm.password=La contraseña es un campo obligatorio.
+Size.LoginForm.password= Login inválido
+NotEmpty.LoginForm.username=El campo usuario es obligatorio.
+Size.LoginForm.username= Login inválido
+Error_while_getting_user=Error al obtener el usuario
+Error_while_validating_user=Error al validar usuario
+Error_while_saving_user=Error al grabar el usuario
+Invalid_User=Usuario Inválido
+Invalid_Login=Registro Inválido
+User_with_username_already_exists=Usuario con mismo nombre ya existe
+User_with_email_already_exists=Usuario con mismo correo ya existe
+
+#Generic Buttons
+Search=Buscar
+OK=OK
+Accept=Aceptar
+Cancel=Cancelar
+Save=Grabar
+
+#Document Screen
+document_type=Tipo
+document_clave=Clave
+document_short_name=Archivo
+document_status=Estatus
+document_upload_date=Fecha de carga
+documents=Documentos
+Documents=Documentos
+documents_of=Documentos de
+new_document=Agregar
+download_document=Descargar 
+error_document=Error
+validate_document=Validar
+invalidate_document=Invalidar
+save_document=Guardar Documento
+document_saved=Documento guardado
+cancel_document=Cancelar
+confirm_cancel_document=¿Está seguro de cancelar el documento seleccionado?
+confirm_validate_document=¿Está seguro de validar el documento seleccionado?
+confirm_error_document=¿Está seguro de marcar con error el documento seleccionado?
+confirm_invalidate_document=¿Está seguro de marcar como inválido el documento seleccionado?
+document_canceled=Documento cancelado
+document_error=Documento con error
+document_validated=Documento validado
+document_invalidated=Documento inválido
+Return_solicitud = Ir a Solicitudes
+
+#Document Validation Messages
+Document_file_is_empty=Debe seleccionar un documento
+Document_file_too_big=El tamaño del documento no debe ser superior a 5 MB
+Document_not_selected=No hay documento seleccionado
+Size.UserDocumentForm.clave=La clave no tiene el tamaño correcto
+Size.UserDocumentForm.description=La descripción de el documento no tiene el tamaño correcto
+NotEmpty.UserDocumentForm.clave=La clave de el documento no puede estar vacío
+NotEmpty.UserDocumentForm.description=La descripción de el documento no puede estar vacía
+NotNull.UserDocumentForm.type=Tipo de documento no válido
+
+#Controller Error
+ModelSessionNotSet=Sessión no establecida
+Error_while_parsing_dates=Error al parsear fechas
+Error_while_retrieving_logs=Error al obtener la bitácora
+Error_when_responding_image=Error al responder imagen
+Error_while_retrieving_pictures=Error al obtener fotos
+Error_when_getting_picture_names=Error al obtener nombres de fotos
+Error_while_retrieving_documents=Error al obtener documentos
+Error_while_saving_document=Error al guardar documento
+Error_while_cancel_documet=Error al cancelar documento
+
+#System Property
+System_Property=Propiedades del Sistema
+System_Property_Id=Id
+System_Property_Name=Propiedad
+System_Property_Value=Valor
+Error_while_getting_form=Error al obtener la forma
+Error_when_getting_systemPropertyName=Error al obtener nombre de Propiedad
+Error_when_getting_systemProperty=Error al obtener Propiedad
+Invalid_application_version=Versión de aplicación inválida
+Error_while_validating_application_version=Error al validar la versión de la aplicación
+
+#Holiday
+holiday=Días festivos
+holiday_id=Id
+holiday_name=Nombre
+holiday_date=Fecha
+new_holiday=Nuevo
+delete_holiday=Borrar
+edit_holiday=Editar
+save_holiday=Guardar Día
+Holiday_saved=Día Guardado
+Holiday_deleted=Día Borrado
+Holiday_Updated=Día actualizado
+no_holiday_selected=No hay dia seleccionado
+confirm_delete_holiday=¿Está seguro de borrar el día seleccionado?
+Error_while_deleting_holiday=Error al borrar día
+Error_while_retrieving_holidays= Error al obtener días
+Error_while_getting_holiday= Error al obtener el día
+Error_while_saving_day=Error al guardar el día
+
+#Other Messages
+Redirecting_To_Login=Redireccionando a la pantalla de Login
+Sending_Back=Regresando
+Redirecting=Redireccionando
+
+Export_Excel=Exportar Excel
+All=Todos
+Records=Registros
+
+session_expired_in = La sesión expirará en
+seconds = segundos.
+OK_click_sessionOn = Haz clic en "OK" para seguir conectado.
+session_expired = La session ha expirado.
+session_expired_warnning = Advertencia de expiracion de session
+
+#Annotations from new user form
+NotEmpty.NewUserForm.email = Especifique una cuenta de correo
+NotEmpty.NewUserForm.lastName = Especifique apellido
+NotEmpty.NewUserForm.status = Especifique el status
+NotEmpty.NewUserForm.firstName = Especifique el nombre
+NotEmpty.NewUserForm.username = Especifique nombre de usuario
+#Length validations of new user form
+Size.NewUserForm.username = La longitud mínima para el campo usuario es 3 máxima 50
+Size.NewUserForm.firstName = La longitud mínima para el campo nombre es 1 máxima 50
+Size.NewUserForm.lastName = La longitud mínima para el campo apellido es 1 máxima 50
+Size.NewUserForm.email = La longitud mínima para el campo email es 5 máxima 100
+
+# Solicitudes
+Appointment_Solicitud=Citas
+Solicitudes = Solicitudes
+New_Solicitud = Nueva 
+Edit_Solicitud = Editar
+Solicitud_registered = Solicitud Registrada
+Solicitud_updated= Solicitud Actualizada
+Error_while_saving_solicitud = Error al grabar solicitud
+Solicitud = Solicitud
+Solicitud_not_selected = No hay solicitud seleccionada
+ReferenciaSearch = Referencia
+FolioSearch = Folio
+Solicitud_type = Tipo
+Solicitud_reference = Referencia
+Confirm_cancel_solicitud = ¿Está seguro de cancelar la solicitud seleccionada?
+Confirm_validate_solicitud = ¿Está seguro de validar la solicitud seleccionada?
+Confirm_error_solicitud = ¿Está seguro de marcar con error la solicitud seleccionada?
+Error_solicitud = Error
+Validate_solicitud = Validar
+Cancel_solicitud = Cancelar
+UserSearch=Usuario
+Agent_name=Agente
+Client_name=Cliente
+Package=Paquete
+Solicitud_must_have_a_reference=La solicitud debe tener una referencia definida
+Solicitud_must_have_a_custom_agency=La solicitud debe tener una agencia aduanal
+Solicitud_must_have_a_custom_client=La solicitud debe tener un cliente
+Solicitud_must_have_a_custom_code=La solicitud debe tener un paquete válido
+Solicitud_must_have_a_custom_package=La solicitud debe tener un paquete comercial
+Solicitud_status_revokes_edition=El estado de la solicitud impide su edición
+Error_accepting_appointment=Error al aceptar cita
+Error_while_getting_solicitud=Error al obtener la solicitud
+Solicitud_appointment_status_revokes_cancellation=El estado de la cita impide su cancelación
+Solicitud_appointment_datetime_revokes_cancellation=La fecha y hora de la cita impiden su cancelación
+Solicitud_appointment_datetime_revokes_edition=La fecha y hora de la cita impiden su edición
+Appointment_already_canceled=La cita ya ha sido cancelada
+Appointment_closed=La cita está cerrada o ha sido utilizada
+Solicitud_already_canceled=La solicitud ya ha sido cancelada
+Solicitud_can_not_be_canceled=La solicitud no puede ser cancelada
+Solicitud_can_not_be_modified=La solicitud tiene citas registradas, no puede ser modificada
+Cancel_Motive=Motivo
+Cancellation=Cancelación
+Appointment_canceled_has_penalty=La cancelación de la cita implica penalidad
+Solicitud_canceled_has_penalty=La cancelación de la solicitud implica penalidad
+Solicitud_should_contains_agent_and_client=La solicitud debe contener un agente y cliente válidos
+Want_to_go_to_appointments=Solicitud guardada ¿desea ir a citas?
+Solicitud_has_not_been_validated=La solicitud no ha sido validada
+Solicitud_requires_documentation=La solicitud requiere documentación
+
+# Generic operation validations
+The_appointment_cannot_be_modified=La cita ya no puede ser modificada
+Special_column_is_required_for_gate=La columna Special es requerida para la puerta
+Container_must_be_defined=Se debe definir el Contenedor
+Booking_must_be_defined=Se debe definir el Booking
+Line_must_be_defined=Se debe definir la Línea
+Type_must_be_defined=Se debe definir el Tipo
+Class_must_be_defined=Se debe definir la Clase
+Date_must_be_defined=Se debe definir la Fecha
+Time_must_be_defined=Se debe definir la Hora
+Transport_must_be_defined=Se debe definir un Transportista válido
+Operator_must_be_defined=Se debe definir un Operador válido
+Plates_must_be_defined=Se deben definir las Placas
+Number_of_containers_exceed_operation_permitted=El número de contenedores excede los permitidos por la operación
+Booking_not_found=Booking no encontrado
+Select_a_carrier=Porfvor seleccione un transportista
+
+# Impo
+ImpoTitle=Entrega de Importación
+name_transportista=Nombre Transportista
+add_transportista=Agregar
+Code_Impo=Código
+Impo_Puerta=Puerta
+Assign=Asignar
+Appointment=Cita
+Status_Appointment=Status-Cita
+Confirm_cancel_appointment=¿Está seguro de cancelar la cita?
+No_appointment_selected=No hay cita seleccionada
+The_appointment_is_not_registered_yet=La cita todavía no está registrada
+Cannot_delete_a_registered_appointment=No se puede borrar una cita ya registrada
+Cannot_change_container_from_a_registered_appointment=No puede cambiarse el contenedor de una cita registrada
+Invalid_container_number_format=Verifique número de contenedor, formato no valido.
+Invalid_container_number_length=Número de contenedor debe tener 11 caracateres.
+Container_was_not_found=Contenedor no encontrado.
+Appointment_cannot_be_modified=La cita no puede modificarse 
+Error_while_updating_appointment_status=Error al actualizar el estado de la cita
+Appointment_canceled=Cita cancelada
+Appointment_registered=Cita registrada
+Type=Tipo
+Line=Linea
+Temporal=Temporal
+Target_Recint=Recinto Destino
+Special=Special
+Reference=Referencia
+Transporter=Transportista
+Transporters=Transportistas
+Operator=Operador
+Plates=Placas
+Date=Fecha
+Time=Hora
+Appointment=Cita
+Status=Status
+Apply=Aplicar
+Request_Appointment=Guardar Cita
+Side=Costado
+Customer_agent_does_not_match_between_solicitud_and_container=Agente Aduanal no concuerda entre la solicitud y el contenedor
+Shipper_does_not_match_between_solicitud_and_container=Cliente no concuerda entre la solicitud y el contenedor
+Container_invalid=Contenedor inválido
+
+# Expo
+Buque_Viaje=Buque Viaje
+POD=Puerto Descarga-Transbordo
+FPOD=Puerto Final
+FK=Condición de Llenado
+Sello1=Sello1
+Sello2=Sello2
+Sello3=Sello3
+Sello4=Sello4
+Has_Hazard=Carga Peligrosa
+IMO=IMO
+UNDG=UNDG
+Marine_Pol=Cont. Marino
+Req_Connection=Req. Conexión
+Set_Point=Set Point
+Has_Dimensions=Sobre Dimensiones
+Recinto_Origen=Recinto Origen
+ExpoTitle=Recepción de Exportación
+Contenido=Contenido
+Container_line_does_not_match_booking_line=La línea del Contenedor no coincide con la línea del Booking
+Container_line_does_not_match_booking_type=El tipo del Contenedor no coincide con el tipo del Booking
+Booking_type_must_be_defined=El tipo del Booking debe estar definido
+Weight=Peso
+Weight_tara=Peso con Tara (Kg)
+Weight_must_be_defined=El peso debe definirse
+Booking_content_not_defined_please_verify_with_Naviera_before_continue=El booking no tiene definido contenido y éste valor es requerido, favor de validar con Servicio a Clientes antes de continuar con la captura.
+
+# EntregaVacio
+EntregaVacioTitle=Entrega de Vacío
+Booking=Booking
+Class=Clase
+Cannot_change_booking_from_a_registered_appointment=No puede cambiarse el booking de una cita registrada
+Cannot_change_line_from_a_registered_appointment=No puede cambiarse la linea de una cita registrada
+You_have_to_select_a_booking=Introdusca booking
+Invalid_line=Línea no válida
+Booking_not_registered_on_system_please_verify_check=Booking no esta registrado en sistema, favor de verificar liberación
+Invalid_booking_number_for_gate=Booking inválido para la puerta
+Check_availability=Verifique disponibilidad.
+
+# RecepcionVacio
+RecepcionVacioTitle=Recepción de Vacío
+Requires_file=Anexe documentos para su validación
+The_type_is_defined_by_container=El tipo está definido por el contenedor
+The_line_is_defined_by_container=La línea está definida por el contenedor
+Temporal_is_defined_by_container=Temporal está definido en el contenedor
+
+# Desistimiento
+DesistimientoTitle=Entrega de Exportación
+Category=Categoría
+
+Comments=Comentarios
+
+ # Reportes
+Reports=Reportes
+Report_arrived_time= Hora de Llegada
+Report_consulta_operativo=Consulta Operativo Importación y Exportación
+Report_consulta_bl=Consulta por BL
+Report_consulta_booking=Consulta por Booking
+Report_contenedores_llenos_entrega_puerta= Contenedores Llenos Entrega por Puerta
+Report_contenedores_llenos_recepcion_puerta=Contenedores Llenos Recepción por Puerta
+Report_contenedores_llenos_ultimo_embarque=Contenedores Llenos Último Embarque
+Report_contenedores_llenos_ultimo_desembarque=Contenedores Llenos Último Desembarque
+Report_etas_cierres_buques=Etas de Buques
+Import=Importación
+Export=Exportación
+Vessel_Voyage=Buque Viaje
+Shipment=Carga
+Arrival=Entrada
+Departure=Salida
+Berthing_date=Fecha Atraque
+Unberthing_date=Fecha Desatraque
+Voyage=Viaje
+Vessel=Buque
+Shipment_date=Fecha Embarque
+Landing_date=Fecha Desembarque
+Entry_pass=Pase de entrada
+Arrival_regulatory_center=Llegada al Centro Regulador
+Entry_terminal_hour=Entrada Hora Terminal
+Movement=Movimiento
+LhtCode=LHT Code
+SslCode=SSL Code
+RdDate=RD Fecha
+RdFlag=RD Flag
+Operating_date=Fecha Operativo
+Released_date=Fecha Liberado
+Departure_date=Fecha de Salida
+Entry_date=Fecha de Ingreso
+Description=Descripción
+Closed_bookings=Cierres de Buques
+
+Error_while_retrieving_objects=Error al obtener objetos
+Container=Contenedor
+Booking=Booking
+Bl=BL
+
+User_is_not_associate_to_N4_user=El usuario no tiene asociado un usuario N4
+
+Folio=Folio
+Custom_Agency=Agencia Aduanal
+Customer=Cliente
+Created=Creado
+Modified=Modificado
+Appointments=Citas
+Appointment=Cita
+Pase_De_Entrada=Pase De Entrada
+Update_Appointment=Actualizar Cita
+Cancel_Appointment=Cancelar Cita
+
+Appointment_registered_please_verify_data_matches_what_is_requested=Cita registrada, favor de verificar que los datos coincidan con lo solicitado
+Operation_%d_successfully_registered_with_NBR_%s=Operación %d registrada con NBR %s
+Error_while_registering_operation_%d\r\n%s=Error al registrar operación %d\r\n%s
+
+Date_Scheduled=Fecha Programada
+Date_Created=Fecha Creación
+Date_Updated=Fecha Actualización
+Has_Documents=Documentación

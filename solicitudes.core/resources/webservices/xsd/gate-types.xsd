@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp1 (http://www.altova.com) by Philip Robertson (Navis LLC) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:argo="http://www.navis.com/argo" targetNamespace="http://www.navis.com/argo" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="GOSTvKeyType">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="ScanStatusType">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+    <xs:simpleType name="DoorDirectionType">
+        <xs:annotation>
+            <xs:documentation>
+                The direction of the doors on a container, which can be any of the following:
+                UNKNOWN - U, ANY - Y, FWD - F or AFT - A
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="U"/>
+            <xs:enumeration value="Y"/>
+            <xs:enumeration value="F"/>
+            <xs:enumeration value="A"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<!-- Define a type for an elment of the form: <tare-weight unit="kg">4000.88</tare-weight>. -->
+	<xs:complexType name="MassUnitType">
+		<xs:simpleContent>
+			<xs:extension base="xs:double">
+				<xs:attribute name="unit" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="g"/>
+							<xs:enumeration value="kg"/>
+							<xs:enumeration value="lb"/>
+							<xs:enumeration value="quintals"/>
+							<xs:enumeration value="long-ton"/>
+							<xs:enumeration value="short-ton"/>
+							<xs:enumeration value="tonne"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+    <xs:simpleType name="WeightUnitType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="g"/>
+            <xs:enumeration value="kg"/>
+            <xs:enumeration value="lb"/>
+            <xs:enumeration value="quintals"/>
+            <xs:enumeration value="long-ton"/>
+            <xs:enumeration value="short-ton"/>
+            <xs:enumeration value="tonne"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Define a type for an elment of the form: <temp-required unit="C">37.0</temp-required>. -->
+	<xs:complexType name="TemperatureUnitType">
+		<xs:simpleContent>
+			<xs:extension base="xs:double">
+				<xs:attribute name="unit" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="C"/>
+							<xs:enumeration value="F"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AppointmentNbrs">
+		<xs:sequence>
+			<xs:element name="appointment-nbr" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EquipmentListType">
+		<xs:sequence>
+			<xs:element name="container" type="argo:ContainerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="accessory" type="argo:AccessoryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="chassis" type="argo:ChassisType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EquipmentIdType">
+		<xs:attribute name="eqid" type="xs:string" use="optional"/>
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+		<xs:attribute name="type-description" type="xs:string" use="optional"/>
+		<xs:attribute name="notes" type="xs:string" use="optional"/>
+		<xs:attribute name="attached-to" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="CHS"/>
+					<xs:enumeration value="CTR"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ScanType">
+		<xs:sequence>
+			<xs:element name="gate-id" minOccurs="0" type="xs:string"/>
+			<xs:element name="stage-id" type="xs:string"/>
+			<xs:element name="lane-id" minOccurs="0" type="xs:string"/>
+			<xs:element name="external-console-id" minOccurs="0" type="xs:string"/>
+			<xs:element name="truck" type="argo:TruckType" minOccurs="0"/>
+			<xs:element name="driver" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="card-id" type="xs:string" use="optional"/>
+					<xs:attribute name="license-nbr" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="truck-visit" type="argo:TruckVisitRequestType" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="scale-weight" type="argo:ScaleWeightType"/>
+				<xs:element name="scale-weight-lb" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>** DEPRECATED ** use scale-weight</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="scale-weight-kg" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>** DEPRECATED ** use scale-weight </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="appointment-nbrs" type="argo:AppointmentNbrs" minOccurs="0"/>
+			<xs:element name="equipment" type="argo:EquipmentListType" minOccurs="0"/>
+			<xs:element name="images" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="id" type="xs:string" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="timestamp" type="xs:dateTime"/>
+		</xs:sequence>
+		<xs:attribute name="scan-set-id" type="xs:long" use="optional"/>
+		<xs:attribute name="scan-status" type="argo:ScanStatusType" use="optional" default="0"/>
+		<xs:attribute name="content" type="xs:string" use="optional" default="default"/>
+	</xs:complexType>
+	<xs:complexType name="TruckScanType">
+		<xs:sequence>
+			<xs:element name="gate-id" type="xs:string"/>
+			<xs:element name="stage-id" type="xs:string"/>
+			<xs:element name="lane-id" minOccurs="0" type="xs:string"/>
+			<xs:element name="truck" type="argo:TruckType" minOccurs="0"/>
+			<xs:element name="driver" type="argo:DriverType" minOccurs="0"/>
+			<xs:element name="truck-visit" type="argo:TruckVisitRequestType" minOccurs="0"/>
+            <xs:element name="gos-truck-entered" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="content" type="xs:string" use="optional" default="default"/>
+	</xs:complexType>
+	<xs:complexType name="TruckVisitType">
+		<xs:annotation>
+			<xs:documentation>** DEPRECATED ** - use TruckVisitRequestType, TruckVisitResponseType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messages" type="argo:MessagesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="gos-tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tracking-tag-id" type="xs:long" use="optional"/>
+		<xs:attribute name="appointment-nbr" type="xs:long" use="optional"/>
+		<xs:attribute name="next-stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="status" type="xs:string" use="optional"/>
+		<xs:attribute name="action" type="xs:string" use="optional"/>
+		<xs:attribute name="next-exchange-area-id" type="xs:string" use="optional"/>
+		<xs:attribute name="out-bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="scale-weight" type="xs:double" use="optional"/>
+		<xs:attribute name="entry-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exchange-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exit-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="trouble-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string01" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string02" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string03" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-date01" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckVisitRequestType">
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="gos-tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tracking-tag-id" type="xs:long" use="optional"/>
+		<xs:attribute name="appointment-nbr" type="xs:long" use="optional"/>
+        <xs:attribute name="external-ref-nbr" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The external reference number of the truck visit appointment, supported only in process truck webservice request.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+		<xs:attribute name="bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="out-bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="scale-weight" type="xs:double" use="optional"/>
+        <xs:attribute name="scale-weight-unit" type="argo:WeightUnitType" use="optional"/>
+		<xs:attribute name="entry-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exchange-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exit-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="trouble-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string01" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string02" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string03" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-date01" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckVisitResponseType">
+		<xs:sequence>
+			<xs:element name="trucking-co" type="argo:TruckingCoType" minOccurs="0"/>
+			<xs:element name="driver" type="argo:DriverType" minOccurs="0"/>
+			<xs:element name="truck-stages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="truck-stage" type="argo:TruckStageType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="documents" type="argo:GateDocumentsType" minOccurs="0"/>
+			<xs:element name="messages" type="argo:MessagesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="gos-tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tracking-tag-id" type="xs:long" use="optional"/>
+		<xs:attribute name="appointment-nbr" type="xs:long" use="optional"/>
+		<xs:attribute name="next-stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="status" type="xs:string" use="optional"/>
+		<xs:attribute name="action" type="xs:string" use="optional"/>
+		<xs:attribute name="gate-id" type="xs:string" use="optional"/>
+		<xs:attribute name="next-exchange-area-id" type="xs:string" use="optional"/>
+		<xs:attribute name="out-bat-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="scale-weight" type="xs:double" use="optional"/>
+        <xs:attribute name="exchange-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="is-internal" type="xs:boolean" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string01" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string02" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-string03" type="xs:string" use="optional"/>
+		<xs:attribute name="tvdtls-flex-date01" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="entered" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="exited" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckVisitWithTransactionsResponseType">
+		<xs:complexContent>
+			<xs:extension base="argo:TruckVisitResponseType">
+				<xs:sequence>
+					<xs:element name="truck-transactions" type="argo:TruckTransactionsType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SealsType">
+		<xs:sequence>
+			<xs:element name="seal-nbr" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="order" type="xs:int" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContainerType">
+		<xs:complexContent>
+			<xs:extension base="argo:EquipmentIdType">
+				<xs:sequence>
+					<xs:element name="accessory" type="argo:AccessoryType" minOccurs="0"/>
+					<xs:element name="oog" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="is-oog" type="xs:boolean" use="optional"/>
+							<xs:attribute name="oog-front" type="xs:long" use="optional"/>
+							<xs:attribute name="oog-back" type="xs:long" use="optional"/>
+							<xs:attribute name="oog-left" type="xs:long" use="optional"/>
+							<xs:attribute name="oog-right" type="xs:long" use="optional"/>
+							<xs:attribute name="oog-top" type="xs:long" use="optional"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="damages" type="argo:DamagesType" minOccurs="0"/>
+					<xs:element name="reefer-details" type="argo:ReeferDetailsType" minOccurs="0"/>
+					<xs:element name="hazards" type="argo:HazardsType" minOccurs="0"/>
+					<xs:element name="placards" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="placard" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:attribute name="text" type="xs:string" use="required"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="routing" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="origin" type="xs:string" use="optional"/>
+							<xs:attribute name="destination" type="xs:string" use="optional"/>
+							<xs:attribute name="pol" type="xs:string" use="optional"/>
+							<xs:attribute name="pol-name" type="xs:string" use="optional"/>
+							<xs:attribute name="pod" type="xs:string" use="optional"/>
+							<xs:attribute name="pod-name" type="xs:string" use="optional"/>
+							<xs:attribute name="pod2" type="xs:string" use="optional"/>
+							<xs:attribute name="pod2-name" type="xs:string" use="optional"/>
+                            <xs:attribute name="optional-pod1" type="xs:string" use="optional">
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        The first optional port of discharge for the container. (Field currently used only in
+                                        the create/update appointment webservice request for Receive Export transaction types).
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:attribute>
+							<xs:attribute name="optional-pod1-name" type="xs:string" use="optional"/>
+							<xs:attribute name="optional-pod2" type="xs:string" use="optional">
+                                 <xs:annotation>
+                                    <xs:documentation>
+                                        The second optional port of discharge for the container. (Field currently used only in
+                                        the create/update appointment webservice request for Receive Export transaction types).
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:attribute>
+							<xs:attribute name="optional-pod2-name" type="xs:string" use="optional"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="owner-id" type="xs:string" use="optional"/>
+				<xs:attribute name="owner-name" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-id" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-name" type="xs:string" use="optional"/>
+				<xs:attribute name="on-chassis-id" type="xs:string" use="optional"/>
+				<xs:attribute name="seal-1" type="xs:string" use="optional"/>
+				<xs:attribute name="seal-2" type="xs:string" use="optional"/>
+				<xs:attribute name="seal-3" type="xs:string" use="optional"/>
+				<xs:attribute name="seal-4" type="xs:string" use="optional"/>
+                <xs:attribute name="shipper-id" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            The id of the party that shipped the cargo. (Field currently used only in the create/update appointment webservice request
+                            for receive export transaction types).
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="consignee-id" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            The id of the party that will receive the cargo. (Field currently used only in the create/update appointment webservice
+                            request for receive export transaction types).
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="commodity-id" type="xs:string" use="optional"/>
+				<xs:attribute name="freight-kind" type="xs:string" use="optional"/>
+				<xs:attribute name="grade-id" type="xs:string" use="optional"/>
+				<xs:attribute name="grade-description" type="xs:string" use="optional"/>
+				<xs:attribute name="gross-weight" type="xs:double" use="optional"/>
+                <xs:attribute name="gross-weight-unit" type="argo:WeightUnitType" use="optional"/>
+				<xs:attribute name="tare-weight" type="xs:double" use="optional"/>
+				<xs:attribute name="safe-weight" type="xs:double" use="optional"/>
+				<xs:attribute name="departure-order-nbr" type="xs:string" use="optional"/>
+				<xs:attribute name="line-id" type="xs:string" use="optional"/>
+				<xs:attribute name="carrier-visit-id" type="xs:string" use="optional"/>
+				<xs:attribute name="planned-slot" type="xs:string" use="optional"/>
+				<xs:attribute name="slot" type="xs:string" use="optional"/>
+				<xs:attribute name="tran-type" type="xs:string" use="optional"/>
+                <xs:attribute name="pin" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-1" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-2" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-3" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-4" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-5" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-6" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-7" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-8" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-9" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-10" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-11" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-12" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-13" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-14" type="xs:string" use="optional"/>
+				<xs:attribute name="unit-flex-string-15" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-1" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-2" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-3" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-4" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-5" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-6" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-7" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-8" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-9" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-string-10" type="xs:string" use="optional"/>
+				<xs:attribute name="ufv-flex-date-1" type="xs:dateTime" use="optional"/>
+				<xs:attribute name="ufv-flex-date-2" type="xs:dateTime" use="optional"/>
+                <xs:attribute name="truck-position" type="xs:long" use="optional"/>
+                <xs:attribute name="door-direction" use="optional" type="argo:DoorDirectionType"/>
+				<xs:attribute name="is-placarded" type="xs:boolean" use="optional"/>
+				<xs:attribute name="has-documents" type="xs:boolean" use="optional"/>
+				<xs:attribute name="exchange-area-id" type="xs:string" use="optional"/>
+			</xs:extension>
+			<!-- 2008-04-30 jku ARGO-11310 1.5.0 Added Flex Fields to Gate Web Services API. -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChassisType">
+		<xs:complexContent>
+			<xs:extension base="argo:EquipmentIdType">
+				<xs:sequence>
+					<xs:element name="accessory" type="argo:AccessoryType" minOccurs="0"/>
+					<xs:element name="damages" type="argo:DamagesType" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="tare-weight" type="xs:double" use="optional"/>
+				<xs:attribute name="safe-weight" type="xs:double" use="optional"/>
+				<xs:attribute name="grade-id" type="xs:string" use="optional"/>
+				<xs:attribute name="grade-description" type="xs:string" use="optional"/>
+				<xs:attribute name="is-owners" type="xs:boolean" use="optional"/>
+				<xs:attribute name="owner-id" type="xs:string" use="optional"/>
+				<xs:attribute name="owner-name" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-id" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-name" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AccessoryType">
+		<xs:complexContent>
+			<xs:extension base="argo:EquipmentIdType">
+				<xs:attribute name="tare-weight" type="xs:double" use="optional"/>
+				<xs:attribute name="owner-id" type="xs:string" use="optional"/>
+				<xs:attribute name="owner-name" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-id" type="xs:string" use="optional"/>
+				<xs:attribute name="operator-name" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DamageType">
+		<xs:attribute name="location" type="xs:string" use="optional"/>
+		<xs:attribute name="quantity" type="xs:integer" use="optional"/>
+		<xs:attribute name="length" type="xs:double" use="optional"/>
+		<xs:attribute name="width" type="xs:double" use="optional"/>
+		<xs:attribute name="depth" type="xs:double" use="optional"/>
+		<xs:attribute name="severity" type="xs:string" use="optional"/>
+		<xs:attribute name="reported" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="repaired" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+		<xs:attribute name="type-description" type="xs:string" use="optional"/>
+		<xs:attribute name="component-id" type="xs:string" use="optional"/>
+		<xs:attribute name="component-description" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BundleType">
+		<xs:attribute name="bundle-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-type" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="HazardType">
+		<xs:attribute name="imdg-class" type="xs:string" use="optional"/>
+		<xs:attribute name="un-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="ltd-qty" type="xs:boolean" use="optional"/>
+		<xs:attribute name="package-type" type="xs:string" use="optional"/>
+		<xs:attribute name="inhalation-zone" type="xs:string" use="optional"/>
+		<xs:attribute name="imdg-code" type="xs:string" use="optional"/>
+		<xs:attribute name="explosive-class" type="xs:string" use="optional"/>
+		<xs:attribute name="page-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="flash-point" type="xs:double" use="optional"/>
+		<xs:attribute name="tech-name" type="xs:string" use="optional"/>
+		<xs:attribute name="proper-name" type="xs:string" use="optional"/>
+		<xs:attribute name="ems-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="ems-res-guide-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="mfag" type="xs:string" use="optional"/>
+		<xs:attribute name="packing-group" type="xs:string" use="optional"/>
+		<xs:attribute name="haz-id-upper" type="xs:string" use="optional"/>
+		<xs:attribute name="substance-lower" type="xs:string" use="optional"/>
+		<xs:attribute name="weight" type="xs:double" use="optional"/>
+		<xs:attribute name="planner-ref" type="xs:string" use="optional"/>
+		<xs:attribute name="qty" type="xs:long" use="optional"/>
+		<xs:attribute name="move-method" type="xs:string" use="optional"/>
+		<xs:attribute name="secondary-imo-1" type="xs:string" use="optional"/>
+		<xs:attribute name="secondary-imo-2" type="xs:string" use="optional"/>
+		<xs:attribute name="deck-restrictions" type="xs:string" use="optional"/>
+		<xs:attribute name="marine-pollutants" type="xs:boolean" use="optional"/>
+		<xs:attribute name="dc-lg-ref" type="xs:string" use="optional"/>
+		<xs:attribute name="emergency-telephone" type="xs:string" use="optional"/>
+		<xs:attribute name="notes" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="DamagesType">
+		<xs:sequence>
+			<xs:element name="damage" type="argo:DamageType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundlesType">
+		<xs:sequence>
+			<xs:element name="bundle" type="argo:BundleType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HazardsType">
+		<xs:sequence>
+			<xs:element name="hazard" type="argo:HazardType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Captures ventilation information. Note: vent-required and vent-setting should have the same unit of measure. -->
+	<xs:complexType name="VentDetailsType">
+		<xs:sequence>
+			<xs:element name="vent-required" type="xs:double" minOccurs="0"/>
+			<xs:element name="vent-setting" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="unit" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="PERCENTAGE"/>
+					<xs:enumeration value="CUBIC_FT_MIN"/>
+					<xs:enumeration value="CUBIC_M_HOUR"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- Captures reefer information on a truck transaction. -->
+	<xs:complexType name="ReeferDetailsType">
+		<xs:sequence>
+			<xs:element name="temp-required" type="argo:TemperatureUnitType" minOccurs="0"/>
+			<xs:element name="temp-observed" type="argo:TemperatureUnitType" minOccurs="0"/>
+			<xs:element name="temp-setting" type="argo:TemperatureUnitType" minOccurs="0"/>
+			<xs:element name="reefer-hours" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minExclusive value="0.0"/>
+						<xs:maxInclusive value="1000000.0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="vent-details" type="argo:VentDetailsType" minOccurs="0"/>
+			<xs:element name="humidity-required" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="0.0"/>
+						<xs:maxInclusive value="100.0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="o2-required" type="argo:MassUnitType" minOccurs="0"/>
+			<xs:element name="co2-required" type="argo:MassUnitType" minOccurs="0"/>
+			<xs:element name="fault-code" type="xs:string" minOccurs="0"/>
+			<xs:element name="fuel-level" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="0.0"/>
+						<xs:maxInclusive value="100.0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="DriverBaseRequestType">
+        <xs:attribute name="card-id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    A driver card is an identification, other than a drivers license, that uniquely identifies a driver such as a Sealink or TWIC
+                    card.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tag-id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    RFID tag ID
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="license-nbr" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    License number of the driver.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="DriverType">
+        <xs:complexContent>
+            <xs:extension base="argo:DriverBaseRequestType">
+                <xs:attribute name="is-hazard-licensed" type="xs:boolean" use="optional" default="false"/>
+                <xs:attribute name="driver-name" type="xs:string" use="optional"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="TruckBaseRequestType">
+        <xs:attribute name="id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Truck Identifier assigned to the truck by the trucking company
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="license-nbr" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Truck license number
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="trucking-co-id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Trucking company using this truck.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="TruckType">
+        <xs:complexContent>
+            <xs:extension base="argo:TruckBaseRequestType">
+                <xs:all>
+                    <xs:element name="tare-weight" type="argo:MassUnitType" minOccurs="0"/>
+                    <xs:element name="safe-weight" type="argo:MassUnitType" minOccurs="0"/>
+                </xs:all>
+            </xs:extension>
+        </xs:complexContent>
+        <!-- 2008-12-09 jku ARGO-15973 1.6.15 Added truck weight elements.
+These elements can appear in any order, but at most once, and are not required. -->
+	</xs:complexType>
+	<!-- 08-25-2009 spai ARGO-19496. Added complex types for multi transactions -->
+	<xs:complexType name="TruckTransactionsType">
+		<xs:sequence>
+			<xs:element name="truck-transaction" type="argo:TruckTransactionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TruckTransactionsRequestType">
+		<xs:sequence>
+			<xs:element name="truck-transaction" type="argo:TruckTransactionRequestType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TruckTransactionType">
+		<xs:sequence>
+			<xs:element name="container" type="argo:ContainerType" minOccurs="0"/>
+			<xs:element name="chassis" type="argo:ChassisType" minOccurs="0"/>
+			<xs:element name="accessory" type="argo:AccessoryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="eq-order" type="argo:EqOrderType" minOccurs="0"/>
+			<xs:element name="cancellation" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="reason" type="xs:string" use="optional"/>
+					<xs:attribute name="reason-description" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="transaction-stages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transaction-stage" type="argo:TransactionStageType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="audit" type="argo:AuditType" minOccurs="0"/>
+			<xs:element name="documents" type="argo:GateDocumentsType" minOccurs="0"/>
+			<xs:element name="messages" type="argo:MessagesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="tran-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tran-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="seq-nbr" type="xs:integer" use="optional"/>
+		<xs:attribute name="exchange-area-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exchange-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="mission" type="xs:string" use="optional"/>
+		<xs:attribute name="stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="next-stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-type" type="xs:string" use="optional"/>
+		<xs:attribute name="freight-kind" type="xs:string" use="optional"/>
+		<xs:attribute name="eqid" type="xs:string" use="optional"/>
+		<xs:attribute name="pin" type="xs:string" use="optional"/>
+		<xs:attribute name="appointment-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="category" type="xs:string" use="optional"/>
+		<xs:attribute name="order-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="order-item-nbr" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>** DEPRECATED ** use type at EquipmentIdType</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="is-confirmed" type="xs:boolean" use="optional"/>
+		<xs:attribute name="notes" type="xs:string" use="optional"/>
+		<xs:attribute name="status" type="xs:string" use="optional"/>
+		<xs:attribute name="action" type="xs:string" use="optional"/>
+		<xs:attribute name="trucking-co-id" type="xs:string" use="optional"/>
+		<xs:attribute name="truck-position" type="xs:long" use="optional"/>
+        <xs:attribute name="door-direction" use="optional" type="argo:DoorDirectionType"/>
+		<xs:attribute name="is-oog" type="xs:boolean" use="optional"/>
+		<xs:attribute name="oog-front" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-back" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-left" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-right" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-top" type="xs:long" use="optional"/>
+		<xs:attribute name="is-hazard" type="xs:boolean" use="optional"/>
+		<xs:attribute name="is-hazard-checked" type="xs:boolean" use="optional"/>
+		<xs:attribute name="tran-flex-string01" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string02" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string03" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string04" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string05" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string06" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string07" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string08" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-date01" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date02" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date03" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date04" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="chs-is-owners" type="xs:boolean" use="optional"/>
+		<xs:attribute name="line-id" type="xs:string" use="optional"/>
+		<xs:attribute name="gate-id" type="xs:string" use="optional"/>
+		<xs:attribute name="next-gate-id" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckTransactionCancellationRequestType">
+		<xs:attribute name="tran-key" type="xs:long" use="optional"/>
+		<xs:attribute name="ctr-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="cancel-reason" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckVisitFilterType">
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="gos-tv-key" type="xs:long" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckTransactionFilterType">
+		<xs:attribute name="tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="gos-tv-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tran-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tran-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="ctr-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="chs-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="order-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="bl-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="from-date" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="to-date" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="date" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="doc-type" type="xs:string" use="optional"/>
+		<xs:attribute name="trucking-co-id" type="xs:string" use="optional"/>
+		<xs:attribute name="line-id" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-type" type="xs:string" use="optional"/>
+		<xs:attribute name="has-damage" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckTransactionRequestType">
+		<xs:sequence>
+			<xs:element name="container" type="argo:ContainerType" minOccurs="0"/>
+			<xs:element name="chassis" type="argo:ChassisType" minOccurs="0"/>
+			<xs:element name="accessory" type="argo:AccessoryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="bundles" type="argo:BundlesType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="tran-key" type="xs:long" use="optional"/>
+		<xs:attribute name="tran-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="seq-nbr" type="xs:integer" use="optional"/>
+		<xs:attribute name="exchange-area-id" type="xs:string" use="optional"/>
+		<xs:attribute name="exchange-lane-id" type="xs:string" use="optional"/>
+		<xs:attribute name="mission" type="xs:string" use="optional"/>
+		<xs:attribute name="next-stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-type" type="xs:string" use="optional"/>
+		<xs:attribute name="freight-kind" type="xs:string" use="optional"/>
+		<xs:attribute name="eqid" type="xs:string" use="optional"/>
+		<xs:attribute name="pin" type="xs:string" use="optional"/>
+		<xs:attribute name="appointment-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="category" type="xs:string" use="optional"/>
+		<xs:attribute name="order-nbr" type="xs:string" use="optional"/>
+		<xs:attribute name="order-item-nbr" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>** DEPRECATED ** use type at EquipmentIdType</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="is-confirmed" type="xs:boolean" use="optional"/>
+		<xs:attribute name="notes" type="xs:string" use="optional"/>
+		<xs:attribute name="status" type="xs:string" use="optional"/>
+		<xs:attribute name="action" type="xs:string" use="optional"/>
+		<xs:attribute name="trucking-co-id" type="xs:string" use="optional"/>
+		<xs:attribute name="truck-position" type="xs:string" use="optional"/>
+        <xs:attribute name="door-direction" use="optional" type="argo:DoorDirectionType"/>
+		<xs:attribute name="is-oog" type="xs:boolean" use="optional"/>
+		<xs:attribute name="oog-front" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-back" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-left" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-right" type="xs:long" use="optional"/>
+		<xs:attribute name="oog-top" type="xs:long" use="optional"/>
+		<xs:attribute name="is-hazard" type="xs:boolean" use="optional"/>
+		<xs:attribute name="is-hazard-checked" type="xs:boolean" use="optional"/>
+		<xs:attribute name="tran-flex-string01" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string02" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string03" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string04" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string05" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string06" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string07" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-string08" type="xs:string" use="optional"/>
+		<xs:attribute name="tran-flex-date01" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date02" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date03" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="tran-flex-date04" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="chs-is-owners" type="xs:boolean" use="optional"/>
+		<xs:attribute name="line-id" type="xs:string" use="optional"/>
+		<xs:attribute name="gate-id" type="xs:string" use="optional"/>
+		<xs:attribute name="next-gate-id" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="GateDocumentType">
+		<xs:sequence>
+			<xs:element name="content">
+				<xs:annotation>
+					<xs:documentation>Data content of the ticket in xml format (see Document.xsd)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="doc-key" type="xs:long" use="required"/>
+		<xs:attribute name="type" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation source="Code for the type of ticket - DROPOFF, EIR, TROUBLE"/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="printer-id" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="MessageType">
+		<xs:attribute name="message-id" type="xs:string" use="required"/>
+		<xs:attribute name="message-text" type="xs:string" use="required"/>
+		<xs:attribute name="message-severity" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="MessagesType">
+		<xs:sequence>
+			<xs:element name="message" type="argo:MessageType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="action" type="xs:string" use="optional"/>
+		<xs:attribute name="locale" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="EqOrderType">
+		<xs:sequence>
+			<xs:element name="eq-order-items" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eq-order-item" type="argo:EqOrderItemType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="order-nbr" type="xs:string" use="required"/>
+		<xs:attribute name="order-type" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="BOOK"/>
+					<xs:enumeration value="EQO"/>
+					<xs:enumeration value="ERO"/>
+					<xs:enumeration value="EDO"/>
+					<xs:enumeration value="ELO"/>
+					<xs:enumeration value="RAIL"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="freight-kind" type="xs:string" use="optional"/>
+		<xs:attribute name="line-id" type="xs:string" use="optional"/>
+		<xs:attribute name="line-name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="GateStageType">
+		<xs:attribute name="stage-order" type="xs:string" use="optional"/>
+		<xs:attribute name="stage-id" type="xs:string" use="optional"/>
+		<xs:attribute name="stage-description" type="xs:string" use="optional"/>
+		<xs:attribute name="stage-menu" type="xs:string" use="optional"/>
+		<xs:attribute name="stage-type" type="xs:string" use="optional"/>
+		<xs:attribute name="life-cycle-state" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ScaleWeightType">
+		<xs:simpleContent>
+			<xs:extension base="xs:int">
+				<xs:attribute name="unit" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="KG"/>
+							<xs:enumeration value="kg"/>
+							<xs:enumeration value="LB"/>
+							<xs:enumeration value="lb"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="GateDocumentsType">
+		<xs:sequence>
+			<xs:element name="document" type="argo:GateDocumentType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TruckingCoType">
+		<xs:attribute name="id" type="xs:string" use="optional"/>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TruckStageType">
+		<xs:sequence>
+			<xs:element name="audit" type="argo:AuditType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="optional"/>
+		<xs:attribute name="started" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="completed" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="had-trouble" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="TransactionStageType">
+		<xs:sequence>
+			<xs:element name="audit" type="argo:AuditType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="optional"/>
+        <xs:attribute name="seq" type="xs:long" use="optional"/>
+        <xs:attribute name="order" type="xs:long" use="optional"/>
+        <xs:attribute name="type" type="xs:string" use="optional"/>
+        <xs:attribute name="status" type="xs:string" use="optional"/>
+		<xs:attribute name="started" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="completed" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="AuditType">
+		<xs:attribute name="creator" type="xs:string" use="optional"/>
+		<xs:attribute name="created" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="last-changer" type="xs:string" use="optional"/>
+		<xs:attribute name="last-changed" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="EqOrderItemType">
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+		<xs:attribute name="type-description" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-length" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-length-name" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-height" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-height-name" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-iso-group" type="xs:string" use="optional"/>
+		<xs:attribute name="eq-iso-group-name" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+    <xs:complexType name="GateAppointmentRequestType">
+        <xs:sequence>
+            <xs:element name="appointment-date" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        The date on which appointment should be created. This is a required element for appointment creation.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="appointment-time" type="xs:time" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        The time for which appointment is requested for a particular date. If included in the request, appointment
+                        will be created for the requested time.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="gate-id" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The gate for which appointment should be created. This is a required element for appointment creation.While updating a
+                        gate appointment, gate-id should be the same as the appointment's gate id.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="driver" type="argo:DriverBaseRequestType" minOccurs="0"/>
+            <xs:element name="truck" type="argo:TruckBaseRequestType" minOccurs="0"/>
+            <xs:element name="booking" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="booking-nbr"/>
+                    <xs:attribute name="line"/>
+                    <xs:attribute name="freight-kind"/>
+                    <xs:attribute name="train-id"/>
+                    <xs:attribute name="train-date" type="xs:dateTime"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tran-type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="RE"/>
+                        <xs:enumeration value="RI"/>
+                        <xs:enumeration value="RM"/>
+                        <xs:enumeration value="RC"/>
+                        <xs:enumeration value="RB"/>
+                        <xs:enumeration value="DE"/>
+                        <xs:enumeration value="DI"/>
+                        <xs:enumeration value="DM"/>
+                        <xs:enumeration value="DC"/>
+                        <xs:enumeration value="TC"/>
+                        <xs:enumeration value="UK"/>
+                        <xs:enumeration value="PUC"/>
+                        <xs:enumeration value="PUE"/>
+                        <xs:enumeration value="PUI"/>
+                        <xs:enumeration value="PUM"/>
+                        <xs:enumeration value="DOC"/>
+                        <xs:enumeration value="DOE"/>
+                        <xs:enumeration value="DOI"/>
+                        <xs:enumeration value="DOM"/>
+                        <xs:enumeration value="DOF"/>
+                        <xs:enumeration value="PUF"/>
+                    </xs:restriction>
+                </xs:simpleType>               
+            </xs:element>
+            <xs:element name="appointment" type="argo:AppointmentRequestType" minOccurs="0"/>
+            <xs:element name="container" type="argo:ContainerType" minOccurs="0"/>
+            <xs:element name="chassis" type="argo:ChassisType" minOccurs="0"/>
+            <xs:element name="import-release-nbr" minOccurs="0"/>
+            <xs:element name="external-ref-nbr" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Refers to the external system's reference number to this appoinment.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="pin-nbr" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>PIN Release Nbr for Pickups</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:complexType name="GateAppointmentResponseType">
+        <xs:sequence>
+            <xs:element name="gate-id" type="xs:string"/>
+            <xs:element name="appointment-nbr" minOccurs="0" type="xs:string"/>
+            <xs:element name="slot" type="argo:SlotType" minOccurs="0"/>
+            <xs:element name="available-slots" type="argo:SlotType" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>If no slot is available for the requested time, the response contains list of available
+                            slots for the requested date for user to select a different time.
+                        </xs:documentation>
+                    </xs:annotation>
+            </xs:element>
+            <xs:element name="booking" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="booking-nbr"/>
+                    <xs:attribute name="line"/>
+                    <xs:attribute name="freight-kind"/>
+                    <xs:attribute name="train-id"/>
+                    <xs:attribute name="train-date" type="xs:dateTime"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tran-type" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="RE"/>
+                        <xs:enumeration value="RI"/>
+                        <xs:enumeration value="RM"/>
+                        <xs:enumeration value="RC"/>
+                        <xs:enumeration value="RB"/>
+                        <xs:enumeration value="DE"/>
+                        <xs:enumeration value="DI"/>
+                        <xs:enumeration value="DM"/>
+                        <xs:enumeration value="DC"/>
+                        <xs:enumeration value="TC"/>
+                        <xs:enumeration value="UK"/>
+                        <xs:enumeration value="PUC"/>
+                        <xs:enumeration value="PUE"/>
+                        <xs:enumeration value="PUI"/>
+                        <xs:enumeration value="PUM"/>
+                        <xs:enumeration value="DOC"/>
+                        <xs:enumeration value="DOE"/>
+                        <xs:enumeration value="DOI"/>
+                        <xs:enumeration value="DOM"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="appointment" type="argo:AppointmentResponseType" minOccurs="0"/>
+            <xs:element name="container" type="argo:ContainerType" minOccurs="0"/>
+            <xs:element name="chassis" type="argo:ChassisType" minOccurs="0"/>
+            <xs:element name="import-release-nbr" minOccurs="0"/>
+            <xs:element name="driver" type="argo:DriverType" minOccurs="0"/>
+            <xs:element name="truck" type="argo:TruckType" minOccurs="0"/>
+            <xs:element name="external-ref-nbr" type="xs:string" minOccurs="0"/>
+            <xs:element name="messages" type="argo:MessagesType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SlotType">
+        <xs:attribute name="slot-start" type="xs:dateTime"/>
+        <xs:attribute name="slot-end" type="xs:dateTime"/>
+    </xs:complexType>
+
+    <!-- this element is introduced to have data specific to appointment like date, time, tran-type, external ref number etc., but as a beginning only
+    the attribute xray-required is added, later the above attributes will be moved inside this complex type-->
+    <xs:complexType name="AppointmentRequestType">
+        <xs:attribute name="requires-xray" type="xs:boolean" use="optional">
+            <xs:annotation>
+            <xs:documentation>True if xray is required for this appointment, false otherwhise.</xs:documentation>
+        </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="AppointmentResponseType">
+        <xs:attribute name="requires-xray" type="xs:boolean" use="optional">
+            <xs:annotation>
+            <xs:documentation>True if xray is required for this appointment, false otherwhise.</xs:documentation>
+        </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <!-- this element is used to hold basic appointment details which is common for both GateAppointment and TruckVisitAppointment can be extended
+     if required-->
+    <xs:complexType name="AppointmentRequestBaseType">
+        <xs:annotation>
+            <xs:documentation>
+                This element AppointmentRequestBaseType is used in both the create/update truck visit appointment and
+                cancel appointment requests. Not all attributes/elements are being used in both the requests. In Cancel Appointment requests
+                only the attributes appointment-nbr and external-ref-nbr is used and whereas in create/update truck visit appointment requests the
+                container element with only truck position and door direction is being used(now). Support to other elements may be provided
+                in the future.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="booking" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="booking-nbr"/>
+                    <xs:attribute name="line"/>
+                    <xs:attribute name="freight-kind"/>
+                    <xs:attribute name="train-id"/>
+                    <xs:attribute name="train-date" type="xs:dateTime"/>
+                </xs:complexType>
+            </xs:element>
+			<xs:element name="container" type="argo:ContainerType" minOccurs="0"/>
+			<xs:element name="chassis" type="argo:ChassisType" minOccurs="0"/>			
+		</xs:sequence>
+        <xs:attribute name="appointment-nbr" type="xs:long" use="optional">
+        <xs:annotation>
+            <xs:documentation>Referes to the generated appointment number,returned from the create-appointment request.</xs:documentation>
+        </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="external-ref-nbr" type="xs:string" use="optional">
+        <xs:annotation>
+            <xs:documentation>Refers to the external system's reference number to this appoinment.</xs:documentation>
+        </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <!--Extends AppointmentRequestBaseType and in addition has state of the appointment -->
+
+    <xs:complexType name="AppointmentResponseBaseType">
+        <xs:complexContent>
+            <xs:extension base="argo:AppointmentRequestBaseType">
+                <xs:attribute name="state" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>Refers to the current state of the appointment,i.e CREATED,USED,CANCEL.</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="AppointmentListRequestType">
+        <xs:sequence>
+            <xs:element name="appointment" type="argo:AppointmentRequestBaseType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+       
+    <xs:complexType name="AppointmentListResponseType">
+        <xs:sequence>
+            <xs:element name="appointment" type="argo:AppointmentResponseBaseType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TruckVisitAppointmentRequestType">
+        <xs:sequence>
+            <xs:element name="appointment-date" type="xs:date">
+                <xs:annotation>
+                    <xs:documentation>
+                        The date on which appointment should be created. This is a required element for appointment creation.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="appointment-time" type="xs:time" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        The time for which appointment is requested for a particular date. If included in the request, appointment
+                        will be created for the requested time.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="gate-id" type="xs:string"/>
+            <xs:element name="driver" type="argo:DriverBaseRequestType" minOccurs="0"/>
+            <xs:element name="truck" type="argo:TruckBaseRequestType" minOccurs="0"/>
+            <xs:element name="external-ref-nbr" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Refers to the external system's reference number to this appoinment.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="run-nbr" type="xs:long" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Refers to the run number of the appoinment, used for selecting the right appointment while processing the 
+                        truck visit appointments(if multiple valid appointments exist for the truck attributes).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="appointments" type="argo:AppointmentListRequestType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TruckVisitAppointmentResponseType">
+        <xs:sequence>
+            <xs:element name="gate-id" type="xs:string"/>
+            <xs:element name="appointment-nbr" minOccurs="0" type="xs:string"/>
+            <xs:element name="slot" type="argo:SlotType" minOccurs="0"/>
+            <xs:element name="available-slots" type="argo:SlotType" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>If no slot is available for the requested time, the response contains list of available
+                            slots for the requested date for user to select a different time.
+                        </xs:documentation>
+                    </xs:annotation>
+            </xs:element>
+            <xs:element name="driver" type="argo:DriverBaseRequestType" minOccurs="0"/>
+            <xs:element name="truck" type="argo:TruckBaseRequestType" minOccurs="0"/>
+            <xs:element name="external-ref-nbr" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Refers to the external system's reference number to this appoinment.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="appointments" type="argo:AppointmentListRequestType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

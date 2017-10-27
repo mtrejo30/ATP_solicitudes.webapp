@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<p>
+Portal Web V-2.0 <br/>El usuario <b>${usuario.username}</b> <b>${cliente}</b> registró un comentario a la solicitud con folio <b>${folio}</b>. 
+<br>Con referencia <b>${solicitud.reference}</b><br/>
+<br/>
+<br/>
+== Contenido del Comentario ==
+<br/>
+${comentario}
+<br/>
+== ==
+<br/>
+<br/>
+Por favor, no responda a este correo directamente, sino a través del sistema <a href="${website}">ATP Solicitudes</a>
+</p>
+
+</body>
+</html>

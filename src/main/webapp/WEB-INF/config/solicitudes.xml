@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+>
+	<context:property-placeholder location="classpath:solicitudes.properties"/>
+
+	<context:component-scan base-package="com.atp.solicitudes.manager" />
+	
+	<!-- DAOs for Domain Manager for sol -->
+	<bean id="profileDao" class="com.atp.solicitudes.dao.hibernate.ProfileDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="userDao" class="com.atp.solicitudes.dao.hibernate.UserDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="empresaDao" class="com.atp.solicitudes.dao.hibernate.EmpresaDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="systemPropertyDao" class="com.objectwave.dao.hibernate.SystemPropertyDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="activityLogEntryDao_" class="com.objectwave.dao.hibernate.ActivityLogEntryDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="genericBlobDao" class="com.objectwave.dao.hibernate.GenericBlobDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="holidayDao" class="com.atp.solicitudes.dao.hibernate.HolidayDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="solicitudDao" class="com.atp.solicitudes.dao.hibernate.SolicitudDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="solicitudAppointmentDao" class="com.atp.solicitudes.dao.hibernate.SolicitudAppointmentDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="solicitudComentarioDao" class="com.atp.solicitudes.dao.hibernate.SolicitudComentarioDaoHibernate" parent="daoTemplate_hibernate"/>	
+	<bean id="documentoSolicitudDao" class="com.atp.solicitudes.dao.hibernate.DocumentoSolicitudDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="activityLogEntryDao" class="com.objectwave.dao.hibernate.ActivityLogEntryDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="solicitudContenedorDao" class="com.atp.solicitudes.dao.hibernate.SolicitudContenedorDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="userTransportistasDao" class="com.atp.solicitudes.dao.hibernate.UserTransportistasDaoHibernate" parent="daoTemplate_hibernate"/>
+	<bean id="BloqueosCitasDao" class="com.atp.solicitudes.dao.hibernate.BloqueosCitasDaoHibernate" parent="daoTemplate_hibernate"/>
+	
+	<!-- Domain Manager for sol -->
+	<bean id="domainManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.atp.solicitudes.manager.impl.DomainManagerImpl">
+			</bean>			
+		</property>
+	</bean>
+</beans>

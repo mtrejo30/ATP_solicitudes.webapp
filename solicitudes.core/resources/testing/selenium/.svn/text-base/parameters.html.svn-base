@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>Parameters</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Parameters</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>fdeutsch</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Welcome1$</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1</td>
+	<td>appointmentRowId</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10000</td>
+	<td>solicitudImpoId</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>MSCU4942888</td>
+	<td>impoContainer</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>AUTOTRANSPORTES DE CARGA FERMO</td>
+	<td>impoTransportista</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>ALBERTO CARLOS TIENDA MARISCAL</td>
+	<td>impoOperador</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10002</td>
+	<td>solicitudEntregaVacioId</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>193TEST1234567</td>
+	<td>entregaVacioBooking</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>21</td>
+	<td>appointmentDay</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10004</td>
+	<td>solicitudDesistimientoId</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>CRLU7223748</td>
+	<td>desistimientoContainer</td>
+</tr>
+</tbody></table>
+</body>
+</html>

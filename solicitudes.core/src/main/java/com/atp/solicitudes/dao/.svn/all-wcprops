@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao
+END
+StoredProceduresDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/StoredProceduresDao.java
+END
+SolicitudDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/SolicitudDao.java
+END
+SolicitudComentarioDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/SolicitudComentarioDao.java
+END
+EmpresaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/EmpresaDao.java
+END
+ProfileDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/ProfileDao.java
+END
+BLDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/BLDao.java
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/UserDao.java
+END
+BookingItemDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/BookingItemDao.java
+END
+OperadorTransportistaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/OperadorTransportistaDao.java
+END
+DocumentoSolicitudDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/DocumentoSolicitudDao.java
+END
+UserN4Dao.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/UserN4Dao.java
+END
+TipoRecepcionVacioDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/TipoRecepcionVacioDao.java
+END
+HolidayDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/HolidayDao.java
+END
+SpecialDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/SpecialDao.java
+END
+BookingDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/BookingDao.java
+END
+ClienteDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/ClienteDao.java
+END
+RecintoOrigenDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/RecintoOrigenDao.java
+END
+SolicitudAppointmentDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/SolicitudAppointmentDao.java
+END
+ContenedorDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/ContenedorDao.java
+END
+PaqueteComercialDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/PaqueteComercialDao.java
+END
+AgenciaAduanalDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/AgenciaAduanalDao.java
+END
+TransportistaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/TransportistaDao.java
+END
+LineaNavieraDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/LineaNavieraDao.java
+END

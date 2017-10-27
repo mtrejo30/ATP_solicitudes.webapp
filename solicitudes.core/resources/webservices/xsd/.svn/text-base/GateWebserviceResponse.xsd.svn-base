@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp1 (http://www.altova.com) by Philip Robertson (Navis LLC) -->
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+					xmlns:argo="http://www.navis.com/argo" 
+					targetNamespace="http://www.navis.com/argo" 
+					elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="gate-response-type.xsd"/>
+	<xs:element name="gate-response">
+		<xs:annotation>
+			<xs:documentation>Root Element for the gate webservice message</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="argo:GateWebserviceResponseType"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

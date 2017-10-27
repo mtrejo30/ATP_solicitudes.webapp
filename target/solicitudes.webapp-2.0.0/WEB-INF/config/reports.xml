@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+>
+	<!-- DAOs for Domain Manager for N4 -->
+	<bean id="contenedoresLlenos_UltimoDesembarqueDao" class="com.atp.solicitudes.reports.dao.mybatis.ContenedoresLlenos_UltimoDesembarqueDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="contenedoresLlenos_UltimoEmbarqueDao" class="com.atp.solicitudes.reports.dao.mybatis.ContenedoresLlenos_UltimoEmbarqueDaoMyBatis" parent="daoTemplate_n4"/>
+ 	<bean id="contenedoresLlenos_RecepcionPorPuertaDao" class="com.atp.solicitudes.reports.dao.mybatis.ContenedoresLlenos_RecepcionPorPuertaDaoMyBatis" parent="daoTemplate_n4"/>
+ 	<bean id="contenedoresLlenos_EntregaPorPuertaDao" class="com.atp.solicitudes.reports.dao.mybatis.ContenedoresLlenos_EntregaPorPuertaDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="consultaOperativoDao" class="com.atp.solicitudes.reports.dao.mybatis.ConsultaOperativoDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="consultaBookingDao" class="com.atp.solicitudes.reports.dao.mybatis.ConsultaBookingDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="consultaBLDao" class="com.atp.solicitudes.reports.dao.mybatis.ConsultaBLDaoMyBatis" parent="daoTemplate_n4"/>
+	
+	<bean id="arrivalTimeLlegadaAlCentroReguladorDao" class="com.atp.solicitudes.reports.dao.mybatis.ArrivalTimeLlegadaAlCentroReguladorDaoMyBatis" parent="daoTemplate_ccg"/>
+	<bean id="arrivalTimeDao" class="com.atp.solicitudes.reports.dao.mybatis.ArrivalTimeDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="etasCierresBuquesDao" class="com.atp.solicitudes.reports.dao.mybatis.EtasCierresBuquesDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="paseDeEntradaReportDao" class="com.atp.solicitudes.reports.dao.mybatis.PaseDeEntradaReportDaoMyBatis" parent="daoTemplate_n4"/>
+	
+	<!-- DomainManager for reports -->
+	<bean id="domainManager_reports" class="com.atp.solicitudes.reports.manager.impl.ReportsDomainManagerImpl">
+		<property name="contenedoresLlenos_UltimoDesembarqueDao"><ref bean="contenedoresLlenos_UltimoDesembarqueDao" /></property>
+		<property name="contenedoresLlenos_UltimoEmbarqueDao"><ref bean="contenedoresLlenos_UltimoEmbarqueDao" /></property>
+		<property name="contenedoresLlenos_RecepcionPorPuertaDao"><ref bean="contenedoresLlenos_RecepcionPorPuertaDao" /></property>
+		<property name="contenedoresLlenos_EntregaPorPuertaDao"><ref bean="contenedoresLlenos_EntregaPorPuertaDao" /></property>
+		<property name="consultaOperativoDao"><ref bean="consultaOperativoDao" /></property>
+		<property name="consultaBookingDao"><ref bean="consultaBookingDao" /></property>
+		<property name="consultaBLDao"><ref bean="consultaBLDao" /></property>
+		
+		<property name="arrivalTimeLlegadaAlCentroReguladorDao"><ref bean="arrivalTimeLlegadaAlCentroReguladorDao" /></property>
+		<property name="arrivalTimeDao"><ref bean="arrivalTimeDao" /></property>
+		<property name="etasCierresBuquesDao"><ref bean="etasCierresBuquesDao" /></property>
+	    <property name="paseDeEntradaReportDao"><ref bean="paseDeEntradaReportDao" /></property>				
+	</bean>
+</beans>

@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/atp-solicitudes/!svn/ver/64/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model
+END
+ReportAccessLevelEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/ReportAccessLevelEnum.java
+END
+ReportAccessLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/ReportAccessLevel.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/User.java
+END
+BL.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/BL.java
+END
+Empresa.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Empresa.java
+END
+Solicitud.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/atp-solicitudes/!svn/ver/63/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Solicitud.java
+END
+LineaNaviera.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/LineaNaviera.java
+END
+AgenciaAduanal.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/AgenciaAduanal.java
+END
+PaqueteComercial.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/PaqueteComercial.java
+END
+SolicitudOperationTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/SolicitudOperationTypeEnum.java
+END
+Special.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Special.java
+END
+Holiday.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Holiday.java
+END
+OperationValidationStateEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/OperationValidationStateEnum.java
+END
+UserN4.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/UserN4.java
+END
+DocumentoSolicitud.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/DocumentoSolicitud.java
+END
+DocumentoTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/DocumentoTypeEnum.java
+END
+SolicitudAppointmentStatusEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/SolicitudAppointmentStatusEnum.java
+END
+BookingItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/BookingItem.java
+END
+OperadorTransportista.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/OperadorTransportista.java
+END
+CancellationMotiveEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/CancellationMotiveEnum.java
+END
+Profile.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Profile.java
+END
+DocumentoStatusEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/DocumentoStatusEnum.java
+END
+SolicitudComentario.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/SolicitudComentario.java
+END
+Transportista.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Transportista.java
+END
+UserStatusEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/UserStatusEnum.java
+END
+Contenedor.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Contenedor.java
+END
+SolicitudAppointment.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/atp-solicitudes/!svn/ver/64/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/SolicitudAppointment.java
+END
+Cliente.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Cliente.java
+END
+RecintoOrigen.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/RecintoOrigen.java
+END
+Booking.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/Booking.java
+END
+TipoRecepcionVacio.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/model/TipoRecepcionVacio.java
+END

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:argo="http://www.navis.com/argo" targetNamespace="http://www.navis.com/argo"
+           elementFormDefault="unqualified" attributeFormDefault="unqualified">
+<xs:element name="icu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="units">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="unit-identity">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="id"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="properties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="tag" use="optional"/>
+                      <xs:attribute type="xs:string" name="value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hpu">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element name="entities">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="units">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="unit">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="id"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="flags">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="flag">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="hold-perm-id"/>
+                      <xs:attribute type="xs:string" name="action"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

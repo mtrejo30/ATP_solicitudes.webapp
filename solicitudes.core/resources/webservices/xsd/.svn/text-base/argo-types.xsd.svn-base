@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://types.webservice.argo.navis.com/v1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://types.webservice.argo.navis.com/v1.0" xmlns:types="http://types.webservice.argo.navis.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="common-types.xsd"/>
+    <!--    <xs:include schemaLocation="argo-types.xsd"/>-->
+    <!-- Empty Complex Type service input paramaters -->
+    <xs:complexType name="Empty"/>
+    <!-- Complex Type Element for the Scope Co-ordinates. -->
+    <xs:complexType name="ScopeCoordinates">
+        <xs:choice>
+            <xs:element name="scopeId" type="xs:string"/>
+            <xs:sequence>
+                <xs:element name="operatorId" type="xs:string" minOccurs="0"/>
+                <xs:element name="complexId" type="xs:string" minOccurs="0"/>
+                <xs:element name="facilityId" type="xs:string" minOccurs="0"/>
+                <xs:element name="yardId" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="GenericInvokeResponseWsType">
+        <xs:sequence>
+            <xs:element name="commonResponse" type="ResponseType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="status" type="xs:string" minOccurs="0"/>
+            <xs:element name="responsePayLoad" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ScopeCoordinateIdsWsType">
+        <!--<xs:choice>-->
+        <!--<xs:element name="scopeId" type="xs:string"/>-->
+        <xs:sequence>
+            <xs:element name="operatorId" type="xs:string" minOccurs="0"/>
+            <xs:element name="complexId" type="xs:string" minOccurs="0"/>
+            <xs:element name="facilityId" type="xs:string" minOccurs="0"/>
+            <xs:element name="yardId" type="xs:string" minOccurs="0"/>
+            <!--RMK, ARGO-18926  Caller can supply the user id to be used in our event logging -->
+            <xs:element name="externalUserId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <!--</xs:choice>-->
+    </xs:complexType>
+</xs:schema>

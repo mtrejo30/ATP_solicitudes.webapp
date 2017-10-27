@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:sws="http://www.springframework.org/schema/web-services"
+	xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/web-services
+		http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+		http://www.springframework.org/schema/oxm 
+		http://www.springframework.org/schema/oxm/spring-oxm-1.5.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean id="messageFactorySOAP" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+       <property name="messageFactory">
+        <!-- This is the Java 6 variant of this fix! Note the "internal" package missing in the spring-ws FAQ. -->
+            <bean class="com.sun.xml.internal.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl"/>
+        </property>
+        <property name="soapVersion">
+            <util:constant static-field="org.springframework.ws.soap.SoapVersion.SOAP_11" />
+        </property>
+    </bean>
+    
+    <bean class="com.sun.xml.internal.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl"/>
+
+    <!-- Beans for N4 objects -->
+    <bean id="jaxb-marshaller-n4" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPaths" value="com.navis.services.argoservice,com.navis.argo"/>
+        <property name="mtomEnabled" value="false"/>
+
+		<property name="marshallerProperties">
+			<map>
+				<entry>
+					<key>
+						<util:constant static-field="javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT" />
+					</key>
+					<value type="java.lang.Boolean">true</value>
+				</entry>
+			</map>
+		</property>
+    </bean>
+    <bean id="jaxb-unmarshaller-n4" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="contextPaths" value="com.navis.services.argoservice,com.navis.argo"/>
+        <property name="mtomEnabled" value="true"/>
+    </bean>
+
+    <bean id="n4_webserviceTemplate" class="com.atp.solicitudes.webservice.client.N4WebServiceTemplate">
+        <constructor-arg ref="messageFactorySOAP" />
+        <property name="marshaller" ref="jaxb-marshaller-n4"></property>
+        <property name="unmarshaller" ref="jaxb-unmarshaller-n4"></property>
+        <property name="messageSender"><ref bean="n4_webserviceTemplate_messageSender" /></property>
+        <property name="defaultUri" value="http://138.245.77.4:10080/apex/services/argoservice" />
+        
+        <property name="operatorId" value="${sol.n4.webservice.operatorId}" />
+        <property name="facilityId" value="${sol.n4.webservice.facilityId}" />
+        <property name="complexId" value="${sol.n4.webservice.complexId}" />
+        <property name="yardId" value="${sol.n4.webservice.yardId}" />
+        <property name="externalUserId" value="${sol.n4.webservice.externalUserId}" />
+    </bean>
+
+    <bean id="n4_webserviceTemplate_messageSender" class="org.springframework.ws.transport.http.CommonsHttpMessageSender">
+    	<property name="credentials"><ref bean="n4_webserviceTemplate_credentials" /></property>
+    </bean>
+    
+    <bean id="n4_webserviceTemplate_credentials" class="org.apache.commons.httpclient.UsernamePasswordCredentials">
+        <constructor-arg value="${sol.n4.webservice.username}"/>
+        <constructor-arg value="${sol.n4.webservice.password}"/>
+    </bean>
+</beans>

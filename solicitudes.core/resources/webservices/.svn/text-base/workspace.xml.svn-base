@@ -1,0 +1,58 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soapenv:Body>
+		<genericInvokeResponse xmlns="http://www.navis.com/services/argoservice">
+			<genericInvokeResponse>
+				<ns1:commonResponse xmlns:ns1="http://types.webservice.argo.navis.com/v1.0">
+					<ns1:Status>3</ns1:Status>
+					<ns1:StatusDescription>Severe errors occurred, check message.
+					</ns1:StatusDescription>
+					<ns1:MessageCollector>
+						<ns1:Messages>
+							<ns1:Message>There are no appointment openings available for the
+								entered date:
+								Either the appointment creation window for the
+								entered date has not
+								been reached yet/has passed, or all
+								available openings are
+								already booked.
+								Please try to make an
+								appointment for a different day.
+							</ns1:Message>
+							<ns1:SeverityLevel>SEVERE</ns1:SeverityLevel>
+						</ns1:Messages>
+					</ns1:MessageCollector>
+					<ns1:QueryResults>
+						<ns1:Result>
+							<argo:gate-response xmlns:argo="http://www.navis.com/argo"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+								xsi:schemaLocation="http://www.navis.com/argo GateWebserviceResponse.xsd">
+								<create-appointment-response>
+									<gate-id>ATP</gate-id>
+									<available-slots slot-start="2014-01-28T07:00:00"
+										slot-end="2014-01-28T07:59:00" />
+									<available-slots slot-start="2014-01-28T08:00:00"
+										slot-end="2014-01-28T08:59:00" />
+									<available-slots slot-start="2014-01-28T09:00:00"
+										slot-end="2014-01-28T09:59:00" />
+									<available-slots slot-start="2014-01-28T10:00:00"
+										slot-end="2014-01-28T10:59:00" />
+									<available-slots slot-start="2014-01-28T11:00:00"
+										slot-end="2014-01-28T11:59:00" />
+								</create-appointment-response>
+							</argo:gate-response>
+						</ns1:Result>
+					</ns1:QueryResults>
+				</ns1:commonResponse>
+				<ns2:responsePayLoad xmlns:ns2="http://types.webservice.argo.navis.com/v1.0"><![CDATA[<update-status>
+	<document-update status="ACCEPTED" ></document-update >
+	<entity-updates amount-successful="0" amount-failed="1" amount-not-found="0">
+		<logical-entity-update logical-entity="n/a" id="unknown" status="FAILED" >There are no appointment openings available for the entered date: 
+Either the appointment creation window for the entered date has not been reached yet/has passed, or all available openings are already booked. 
+Please try to make an appointment for a different day.</logical-entity-update>
+	</entity-updates>
+	</update-status>]]></ns2:responsePayLoad>
+			</genericInvokeResponse>
+		</genericInvokeResponse>
+	</soapenv:Body>
+</soapenv:Envelope>

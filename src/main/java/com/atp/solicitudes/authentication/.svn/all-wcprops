@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/authentication
+END
+AuthorityListResolverByUserRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/authentication/AuthorityListResolverByUserRole.java
+END
+ApplicationAuthenticationProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/authentication/ApplicationAuthenticationProvider.java
+END

@@ -1,0 +1,82 @@
+sol.database.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+sol.database.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+sol.database.hibernate.default_schema=dbo
+sol.database.url=jdbc:sqlserver://138.245.80.111:1433;databaseName=CITAS_TEST;autoReconnect=true
+sol.database.username=citas
+sol.database.password=objectwave
+
+sol.n4.database.driverClassName=oracle.jdbc.OracleDriver
+sol.n4.database.url=jdbc:oracle:thin:@138.245.77.1:1521:atpnavis
+sol.n4.database.username=n4_atp
+sol.n4.database.password=n4_atp
+
+sol.veh.database.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+sol.veh.database.url=jdbc:sqlserver://138.245.60.100:1433;databaseName=VEHICULOS;autoReconnect=true
+sol.veh.database.username=consultas
+sol.veh.database.password=consultas
+
+sol.ccg.database.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+sol.ccg.database.url=jdbc:sqlserver://138.245.80.111:1433;databaseName=CCG_DES;autoReconnect=true
+sol.ccg.database.username=consultas
+sol.ccg.database.password=consultas
+
+#sol.email.notification.target.all=atp-pasesimpo@atpaltamira.com.mx
+#sol.email.notification.target.impo=atp-pases@atpaltamira.com.mx
+
+sol.email.notification.sender=notificaciones_atp@atpaltamira.com.mx
+sol.email.notification.subject.header=[ATP Solicitudes] : Correo de Notificacion
+#ATP emails
+sol.email.notification.target.atp.all=victoria.ruiz@objectwave.com
+#sol.email.notification.target.atp.impo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.atp.expo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.atp.entregavacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.atp.recepcionvacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.atp.desistimiento=victoria.ruiz@objectwave.com
+sol.email.notification.target.atp.impo=atp-pasesimpo@atpaltamira.com.mx
+sol.email.notification.target.atp.expo=atp-pases@atpaltamira.com.mx
+sol.email.notification.target.atp.entregavacio=atp-pases@atpaltamira.com.mx
+sol.email.notification.target.atp.recepcionvacio=atp-pases@atpaltamira.com.mx
+sol.email.notification.target.atp.desistimiento=docbuques@atpaltamira.com.mx
+
+#Istasa emails
+sol.email.notification.target.istasa.all=victoria.ruiz@objectwave.com
+#sol.email.notification.target.istasa.impo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.istasa.expo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.istasa.entregavacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.istasa.recepcionvacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.istasa.desistimiento=victoria.ruiz@objectwave.com
+sol.email.notification.target.istasa.impo=erivera@atpaltamira.com.mx
+sol.email.notification.target.istasa.expo=erivera@atpaltamira.com.mx
+sol.email.notification.target.istasa.entregavacio=erivera@atpaltamira.com.mx
+sol.email.notification.target.istasa.recepcionvacio=erivera@atpaltamira.com.mx
+sol.email.notification.target.istasa.desistimiento=erivera@atpaltamira.com.mx
+
+#RFI emails
+sol.email.notification.target.rfi.all=victoria.ruiz@objectwave.com
+#sol.email.notification.target.rfi.impo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.rfi.expo=victoria.ruiz@objectwave.com
+#sol.email.notification.target.rfi.entregavacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.rfi.recepcionvacio=victoria.ruiz@objectwave.com
+#sol.email.notification.target.rfi.desistimiento=victoria.ruiz@objectwave.com
+sol.email.notification.target.rfi.impo=erivera@atpaltamira.com.mx
+sol.email.notification.target.rfi.expo=erivera@atpaltamira.com.mx
+sol.email.notification.target.rfi.entregavacio=erivera@atpaltamira.com.mx
+sol.email.notification.target.rfi.recepcionvacio=erivera@atpaltamira.com.mx
+sol.email.notification.target.rfi.desistimiento=erivera@atpaltamira.com.mx
+
+sol.website.url=http://localhost:8080/solicitudes
+
+sol.password_expires.numberOfDays=30
+# check cron-job expression handling
+# nice tutorial http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
+sol.process.updateappointments.interval=0 0/5 7-19 * * *
+#sol.process.updateappointments.interval=0/5 * 7-19 * * *
+
+sol.n4.webservice.username=ROBOTATP
+sol.n4.webservice.password=ATPROBOT
+sol.n4.webservice.argoservice.url=http://138.245.77.4:10080/apex/services/argoservice
+sol.n4.webservice.operatorId=ATP
+sol.n4.webservice.facilityId=ATP
+sol.n4.webservice.complexId=ATP
+sol.n4.webservice.yardId=ATP
+sol.n4.webservice.externalUserId=ATPSOL

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="SPARCS N4 Web Service argoservice" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ArgoServiceSoapBinding" type="wsdl" bindingName="{http://www.navis.com/services/argoservice}ArgoServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://138.245.77.4:10080/apex/services/argoservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://138.245.77.4:10080/apex/services/argoservice?wsdl"><con:part><con:url>http://138.245.77.4:10080/apex/services/argoservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ArgoService" targetNamespace="http://www.navis.com/services/argoservice" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.navis.com/services/argoservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Argo Services</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.navis.com/services/argoservice" xmlns:types="http://types.webservice.argo.navis.com/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://types.webservice.argo.navis.com/v1.0" schemaLocation="../schema/argo-types.xsd"></xsd:import>
+      <!--wrapped style add the method name and arguments-->
+      <xsd:element name="genericInvoke">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="scopeCoordinateIdsWsType" type="types:ScopeCoordinateIdsWsType"/>
+            <xsd:element maxOccurs="1" minOccurs="1" name="xmlDoc" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="genericInvokeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="genericInvokeResponse" type="types:GenericInvokeResponseWsType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="genericInvokeRequest">
+    <wsdl:part element="tns:genericInvoke" name="genericInvoke"/>
+  </wsdl:message>
+  <wsdl:message name="genericInvokeResponse">
+    <wsdl:part element="tns:genericInvokeResponse" name="genericInvokeResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ArgoServicePort">
+    <!--name of your wrapped method-->
+    <wsdl:operation name="genericInvoke">
+      <wsdl:input message="tns:genericInvokeRequest"/>
+      <wsdl:output message="tns:genericInvokeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArgoServiceSoapBinding" type="tns:ArgoServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <!--name of your wrapped method-->
+    <wsdl:operation name="genericInvoke">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArgoService">
+    <wsdl:port binding="tns:ArgoServiceSoapBinding" name="ArgoServicePort">
+      <soap:address location="http://138.245.77.4:10080/apex/services/argoservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://138.245.77.4:10080/apex/schema/argo-types.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://types.webservice.argo.navis.com/v1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://types.webservice.argo.navis.com/v1.0" xmlns:types="http://types.webservice.argo.navis.com">
+  <xs:include schemaLocation="common-types.xsd"/>
+  <!--<xs:include schemaLocation="argo-types.xsd"/>-->
+  <!--Empty Complex Type service input paramaters-->
+  <xs:complexType name="Empty"/>
+  <!--Complex Type Element for the Scope Co-ordinates.-->
+  <xs:complexType name="ScopeCoordinates">
+    <xs:choice>
+      <xs:element name="scopeId" type="xs:string"/>
+      <xs:sequence>
+        <xs:element name="operatorId" type="xs:string" minOccurs="0"/>
+        <xs:element name="complexId" type="xs:string" minOccurs="0"/>
+        <xs:element name="facilityId" type="xs:string" minOccurs="0"/>
+        <xs:element name="yardId" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="GenericInvokeResponseWsType">
+    <xs:sequence>
+      <xs:element name="commonResponse" type="ResponseType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="responsePayLoad" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScopeCoordinateIdsWsType">
+    <!--<xs:choice>-->
+    <!--<xs:element name="scopeId" type="xs:string"/>-->
+    <xs:sequence>
+      <xs:element name="operatorId" type="xs:string" minOccurs="0"/>
+      <xs:element name="complexId" type="xs:string" minOccurs="0"/>
+      <xs:element name="facilityId" type="xs:string" minOccurs="0"/>
+      <xs:element name="yardId" type="xs:string" minOccurs="0"/>
+      <!--RMK, ARGO-18926  Caller can supply the user id to be used in our event logging-->
+      <xs:element name="externalUserId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <!--</xs:choice>-->
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://138.245.77.4:10080/apex/schema/common-types.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--no namespace-->
+  <xs:complexType name="CountryListType">
+    <xs:sequence>
+      <xs:element name="Countries" type="CountryType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CountryType">
+    <xs:sequence>
+      <xs:element name="CountryName" type="xs:string" minOccurs="0"/>
+      <xs:element name="States" type="StateType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StateType">
+    <xs:sequence>
+      <xs:element name="StateName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LanguageListType">
+    <xs:sequence>
+      <xs:element name="Languages" type="LanguageType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LanguageType">
+    <xs:sequence>
+      <xs:element name="Language" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--needs to be looked into-->
+  <xs:complexType name="QueryResultType">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseType">
+    <xs:sequence>
+      <xs:element name="Status" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StatusDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="MessageCollector" type="MessageCollectorType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueryResults" type="QueryResultType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageCollectorType">
+    <xs:sequence>
+      <xs:element name="Messages" type="MessageType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageType">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SeverityLevel" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendedDetailsType">
+    <xs:sequence>
+      <xs:element name="ExtendedDetail" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="detailType" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CredentialType">
+    <xs:sequence>
+      <xs:element name="Prompt" type="xs:string"/>
+      <xs:element name="Response" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="credentialType" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="EmptyStringType">
+    <xs:restriction base="xs:string">
+      <xs:length value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--List of addresses-->
+  <xs:complexType name="AddressesType">
+    <xs:sequence>
+      <xs:element name="Address" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="AddressType">
+              <xs:attribute name="addressType" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="StreetAddressLine1" type="xs:string" minOccurs="0"/>
+      <xs:element name="StreetAddressLine2" type="xs:string" minOccurs="0"/>
+      <xs:element name="City" type="xs:string" minOccurs="0"/>
+      <xs:element name="State" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CountryCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhonesType">
+    <xs:sequence>
+      <xs:element name="Phone" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="addressType" type="xs:string" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://138.245.77.4:10080/apex/services/argoservice</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="genericInvoke" bindingOperationName="genericInvoke" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="Basic TlJPRFJJR1VFWjoxMjM0NTY3OA==" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://138.245.77.4:10080/apex/services/argoservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:arg="http://www.navis.com/services/argoservice" xmlns:v1="http://types.webservice.argo.navis.com/v1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <arg:genericInvoke>
+         <arg:scopeCoordinateIdsWsType>
+            <!--Optional:-->
+            <v1:operatorId>ATP</v1:operatorId>
+            <!--Optional:-->
+            <v1:complexId>ATP</v1:complexId>
+            <!--Optional:-->
+            <v1:facilityId>ATP</v1:facilityId>
+            <!--Optional:-->
+            <v1:yardId>ATP</v1:yardId>
+            <!--Optional:-->
+            <v1:externalUserId>ATPSOL</v1:externalUserId>
+         </arg:scopeCoordinateIdsWsType>
+         <arg:xmlDoc>
+         <![CDATA[
+		<gate>
+		 <create-appointment>
+		  <appointment-date>2014-01-22</appointment-date>
+		  <appointment-time>14:00:00</appointment-time>
+		  <gate-id>ATP</gate-id>
+		  <driver card-id="123456"/>
+		  <truck license-nbr="123"  trucking-co-id="3G"/>
+		  <tran-type>DI</tran-type>
+		  <container eqid="MEDU8701376"/>
+		 </create-appointment>
+		</gate>
+		]]]]>><![CDATA[
+         </arg:xmlDoc>
+      </arg:genericInvoke>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password>ATPROBOT</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.navis.com/services/argoservice/ArgoServicePort/genericInvokeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

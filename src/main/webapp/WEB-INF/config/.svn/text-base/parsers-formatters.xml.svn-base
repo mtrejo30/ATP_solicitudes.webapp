@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+>
+	<!-- Date formatters -->
+	<bean id="dateFormatter_yyyy-MM-dd" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+
+	<bean id="dateFormatter_yyyy-MM-dd_hh_mm_ss" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd HH:mm:ss" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+	
+	<bean id="dateFormatter_hh_mm_ss" class="java.text.SimpleDateFormat">
+		<constructor-arg value="HH:mm:ss" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+
+	<bean id="dateFormatter_yyyy-MMM-dd_hh_mmm_ss" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MMM-dd HH:mm:ss" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+	
+	<bean id="dateFormatter_dd-MMM-yyyy_hh_mmm_ss" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd-MMM-yyyy HH:mm:ss" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+
+	<bean id="dateFormatter_dd-MM-yyyy" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd-MM-yyyy" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+
+	<bean id="dateFormatter_dd-MMM-yyyy" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd MMM yyyy" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+	
+	<bean id="dateFormatter_dd-MMM-yyyy_hh_mmm" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd MMM yyyy HH:mm" />
+		<constructor-arg><ref bean="defaultLocale" /></constructor-arg>
+	</bean>
+
+	<!-- Number formatters -->
+	<bean id="numberFormatter_decimals" class="java.text.DecimalFormat">
+		<constructor-arg value="#########0.00" />
+	</bean>
+
+	<bean id="numberFormatter_commas_decimals" class="java.text.DecimalFormat">
+		<constructor-arg value="#,###,###,##0.00" />
+	</bean>
+</beans>

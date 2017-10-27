@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp1 (http://www.altova.com) by Philip Robertson (Navis LLC) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:argo="http://www.navis.com/argo" targetNamespace="http://www.navis.com/argo"
+           elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xs:include schemaLocation="snx-types.xsd"/>
+    <xs:include schemaLocation="gate-types.xsd"/>
+    <xs:complexType name="GateWebserviceResponseType">
+        <xs:annotation>
+            <xs:documentation>Action to be processed by the gate webservice</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+			<xs:choice>
+				<xs:element name="record-scan-response"/>
+				<xs:element name="process-truck-response" type="argo:ProcessTruckResponseType"/>
+                <xs:element name="cancel-transaction-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="truck-transaction" type="argo:TruckTransactionType" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+				<xs:element name="submit-transaction-response">
+					<xs:complexType>
+						<xs:sequence>
+						<xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType"/>
+							<xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+							<xs:element name="appointments" type="argo:AppointmentsType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+                <xs:element name="submit-multiple-transactions-response">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType"/>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+							<xs:element name="appointments" type="argo:AppointmentsType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="stage-done-response">
+					<xs:complexType>
+						<xs:sequence>
+						    <xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType"/>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+						</xs:sequence>
+						<xs:attribute name="action" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="request-pickup-appointments-response">
+					<xs:complexType>
+						<xs:sequence>
+						<xs:element name="truck-visit" type="argo:TruckVisitResponseType"/>
+							<xs:element name="appointments" type="argo:AppointmentsType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<!-- 2009-02-27 ARGO-16838 aprabhakar v1.9.C - Create an API that provides all the trucks that are in trouble status and
+				why they are in trouble status -->
+				<xs:element name="request-trouble-transactions-response">
+					<xs:complexType>
+						<xs:sequence>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+						</xs:sequence>
+						<xs:attribute name="action" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="create-truck-visit-response">
+					<xs:complexType>
+						<xs:sequence>
+						<xs:element name="truck-visit" type="argo:TruckVisitResponseType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+                <xs:element name="cancel-truck-visit-response">
+					<xs:complexType>
+						<xs:sequence>
+						    <xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType"/>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="read-preadvise-response">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="unit" type="argo:tUnit" minOccurs="0"/>
+							<xs:element name="appointment" type="argo:AppointmentType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="request-visit-details-response">
+					<xs:complexType>
+						<xs:sequence>
+                            <xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType" minOccurs="0"/>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+						</xs:sequence>
+						<xs:attribute name="action" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+                <xs:element name="list-transactions-response">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="truck-visits" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="truck-transactions" type="argo:TruckTransactionsType" minOccurs="0"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="update-truck-visit-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                        <xs:element name="truck-visit" type="argo:TruckVisitResponseType" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+				<xs:element name="request-scans-expected-response">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="scans-expected" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="scan-expected" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="truck" type="argo:TruckType" minOccurs="0"/>
+													<xs:element name="equipment" minOccurs="0">
+														<xs:complexType>
+															<xs:choice maxOccurs="unbounded">
+																<xs:element name="container" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="eqid" type="xs:string" use="optional"/>
+																		<xs:attribute name="type" type="xs:string" use="optional"/>
+																		<xs:attribute name="on-chassis-id" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="chassis" minOccurs="0">
+																	<xs:complexType>
+																		<xs:attribute name="eqid" type="xs:string" use="optional"/>
+																		<xs:attribute name="type" type="xs:string" use="optional"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="last-stage-completion" type="xs:dateTime" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="stage-id" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="notify-arrival-response">
+					<xs:complexType>
+						<xs:sequence>
+                            <xs:element name="truck-visit" type="argo:TruckVisitWithTransactionsResponseType" minOccurs="0"/>
+                            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+                        </xs:sequence>
+                        <xs:attribute name="action" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="create-appointment-response" type="argo:GateAppointmentResponseType"/>
+
+                <xs:element name="read-order-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="eq-orders">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="eq-order" type="argo:EqOrderType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="request-stage-details-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="gate-stages" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="gate-stage" type="argo:GateStageType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="transaction-stages" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="transaction-stage" type="argo:TransactionStageType" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="action" type="xs:string" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="update-appointment-response" type="argo:GateAppointmentResponseType"/>
+
+                <xs:element name="cancel-appointment-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="appointments" type="argo:AppointmentListResponseType" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="create-truck-visit-appointment-response" type="argo:TruckVisitAppointmentResponseType"/>
+                <xs:element name="update-truck-visit-appointment-response" type="argo:TruckVisitAppointmentResponseType"/>
+                <xs:element name="cancel-truck-visit-appointment-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="appointments" type="argo:AppointmentListResponseType" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="custom-response">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:choice>
+
+            <xs:element name="notify-wait" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FieldDescriptorTypes">
+        <xs:sequence>
+            <xs:element name="field" type="argo:FieldDescriptorType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FieldDescriptorType">
+        <xs:sequence>
+            <xs:element name="lov" type="argo:LovType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="label" type="xs:string" use="optional"/>
+        <xs:attribute name="hint" type="xs:string" use="optional"/>
+        <xs:attribute name="mode" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="AppointmentsType">
+        <xs:sequence>
+            <xs:element name="appointment" type="argo:AppointmentType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DocumentType">
+        <xs:sequence>
+            <xs:element name="content" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="doc-key" type="xs:long" use="required"/>
+        <xs:attribute name="type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="EIR"/>
+                    <xs:enumeration value="DROPOFF"/>
+                    <xs:enumeration value="PICKUP"/>
+                    <xs:enumeration value="TROUBLE"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="LovType">
+        <xs:sequence>
+            <xs:element name="lov-entry" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="lov-key" type="xs:long" use="required"/>
+                    <xs:attribute name="lov-description" type="xs:string" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AppointmentType">
+        <xs:choice>
+            <xs:element name="container" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="eqid" type="xs:string"/>
+                    <xs:attribute name="type" type="xs:string"/>
+                    <xs:attribute name="length" type="xs:string"/>
+                    <xs:attribute name="description" type="xs:string"/>
+                    <xs:attribute name="requires-power" type="xs:string"/>
+                    <xs:attribute name="hazardous" type="xs:string"/>
+                    <xs:attribute name="oog" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chassis" minOccurs="0">
+                <xs:complexType>
+                    <xs:attribute name="eqid" type="xs:string"/>
+                    <xs:attribute name="type" type="xs:string"/>
+                    <xs:attribute name="length" type="xs:string"/>
+                    <xs:attribute name="description" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+        <xs:attribute name="appointment-nbr" type="xs:string" use="required"/>
+        <xs:attribute name="external-ref-nbr" type="xs:string" use="optional"/>
+        <xs:attribute name="tran-type" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ProcessTruckResponseType">
+        <xs:sequence>
+            <xs:element name="truck-visit">
+                <xs:complexType>
+                    <xs:complexContent>
+						<xs:extension base="argo:TruckVisitWithTransactionsResponseType"/>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="truck-transactions" minOccurs="0" type="argo:TruckTransactionsType"/>
+            <xs:element name="appointments" type="argo:AppointmentsType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="action" type="xs:string" use="optional"/>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice
+END
+BookingItemWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/BookingItemWebService.java
+END
+OperadorTransportistaWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/OperadorTransportistaWebService.java
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/UserService.java
+END
+PaseDeEntradaReportWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/PaseDeEntradaReportWebService.java
+END
+SolicitudComentarioWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/SolicitudComentarioWebService.java
+END
+LineaNavieraWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/LineaNavieraWebService.java
+END
+TransportistaWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/TransportistaWebService.java
+END
+AgenciaAduanalWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/AgenciaAduanalWebService.java
+END
+PaqueteComercialWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/PaqueteComercialWebService.java
+END
+ContenedorWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/ContenedorWebService.java
+END
+RecintoOrigenWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/RecintoOrigenWebService.java
+END
+ClienteWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/ClienteWebService.java
+END
+SpecialWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/SpecialWebService.java
+END
+BookingWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/BookingWebService.java
+END
+LocalBaseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/LocalBaseService.java
+END
+TipoRecepcionVacioWebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/TipoRecepcionVacioWebService.java
+END
+UserN4WebService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/webservice/UserN4WebService.java
+END

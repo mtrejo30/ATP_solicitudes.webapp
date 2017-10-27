@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels
+END
+cancel-appointment-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/cancel-appointment-panel.js
+END
+document-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/document-panel.js
+END
+user-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/user-panel.js
+END
+holiday-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/holiday-panel.js
+END
+fake-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/fake-panel.js
+END
+solicitud-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/solicitud-panel.js
+END
+comentario-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/comentario-panel.js
+END
+cancel-solicitud-panel.js
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/webapp/panels/cancel-solicitud-panel.js
+END

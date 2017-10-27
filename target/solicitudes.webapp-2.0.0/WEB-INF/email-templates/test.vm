@@ -1,0 +1,13 @@
+<html>
+<body>
+
+<p>
+Hello ${user.firstName} ${user.lastName},<br/>
+<br/>
+This is a test of sending an email through the mail sender bean
+<br/>
+- ATP Solicitudes<br/>
+</p>
+
+</body>
+</html>

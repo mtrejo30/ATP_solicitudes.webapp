@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="parameters.html">Parameters</a></td></tr>
+<tr><td><a href="login.html">Login</a></td></tr>
+<tr><td><a href="impo-register.html">IMPO Register</a></td></tr>
+<tr><td><a href="impo-cancel.html">IMPO Cancel</a></td></tr>
+<tr><td><a href="entregavacio-register.html">EntregaVacio Register</a></td></tr>
+<tr><td><a href="entregavacio-cancel.html">EntregaVacio Cancel</a></td></tr>
+<tr><td><a href="desistimiento-register.html">Desistimiento Register</a></td></tr>
+<tr><td><a href="desistimiento-cancel.html">Desistimiento Cancel</a></td></tr>
+<tr><td><a href="Contenedores Llenos Ultimo Desembarque.html">Contenedores Llenos Ultimo Desembarque</a></td></tr>
+<tr><td><a href="Contenedores Llenos Ultimo Embarque.html">Contenedores Llenos Ultimo Embarque</a></td></tr>
+<tr><td><a href="Contenedores Llenos Recepcion por Puerta.html">Contenedores Llenos Recepcion por Puerta</a></td></tr>
+<tr><td><a href="Contenedores Llenos Entrega por Puerta.html">Contenedores Llenos Entrega por Puerta</a></td></tr>
+<tr><td><a href="Consulta por Booking.html">Consulta por Booking</a></td></tr>
+<tr><td><a href="Consulta por BL.html">Consulta por BL</a></td></tr>
+<tr><td><a href="Hora de Llegada.html">Hora de Llegada</a></td></tr>
+<tr><td><a href="Etas y Cierres de Buques.html">Etas y Cierres de Buques</a></td></tr>
+<tr><td><a href="Consulta Operativo Importacion y Exportacion.html">Consulta Operativo Importacion y Exportacion</a></td></tr>
+</tbody></table>
+</body>
+</html>

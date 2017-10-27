@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>Desistimiento Register</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Desistimiento Register</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/solicitudes/main.page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=solicitudMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${solicitudDesistimientoId}']/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Citas']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='add_table']/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=${appointmentRowId}_contenedor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=${appointmentRowId}_contenedor</td>
+	<td>${desistimientoContainer}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'${desistimientoContainer}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'${desistimientoContainer}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=${appointmentRowId}_referencia</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=${appointmentRowId}_transportista</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=${appointmentRowId}_transportista</td>
+	<td>${impoTransportista}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'${impoTransportista}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'${impoTransportista}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=${appointmentRowId}_operador</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=${appointmentRowId}_operador</td>
+	<td>${impoOperador}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'${impoOperador}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'${impoOperador}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=${appointmentRowId}_placas</td>
+	<td>XJY-1234</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='${appointmentRowId}']/td[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=${appointmentRowId}_date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${appointmentDay}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=${appointmentRowId}_time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='1']/td[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//select[@id='${appointmentRowId}_time']/option[@value='13:00:00']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=${appointmentRowId}_time</td>
+	<td>13:00:00</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showMessage_okButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@id='modalMessage']/p[contains(text(),'Cita generada')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showMessage_okButton</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

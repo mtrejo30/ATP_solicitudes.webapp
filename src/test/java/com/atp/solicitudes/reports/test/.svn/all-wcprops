@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test
+END
+ConsultaOperativoTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ConsultaOperativoTest.java
+END
+ContenedoresLlenos_UltimoEmbarqueTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ContenedoresLlenos_UltimoEmbarqueTest.java
+END
+ArrivalTimeLlegadaAlCentroReguladorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ArrivalTimeLlegadaAlCentroReguladorTest.java
+END
+ContenedoresLlenos_RecepcionPorPuertaTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ContenedoresLlenos_RecepcionPorPuertaTest.java
+END
+RunAllTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/RunAllTests.java
+END
+ConsultaBookingTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ConsultaBookingTest.java
+END
+ContenedoresLlenos_UltimoDesembarqueTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ContenedoresLlenos_UltimoDesembarqueTest.java
+END
+ContenedoresLlenos_EntregaPorPuertaTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ContenedoresLlenos_EntregaPorPuertaTest.java
+END
+ConsultaBLTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/test/java/com/atp/solicitudes/reports/test/ConsultaBLTest.java
+END

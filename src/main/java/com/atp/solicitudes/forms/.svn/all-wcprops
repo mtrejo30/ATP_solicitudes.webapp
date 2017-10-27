@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms
+END
+LoginForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/LoginForm.java
+END
+UserDocumentForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/UserDocumentForm.java
+END
+ActivityLogForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/ActivityLogForm.java
+END
+UserAdminForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/UserAdminForm.java
+END
+SystemPropertyForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/SystemPropertyForm.java
+END
+SearchUserForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/SearchUserForm.java
+END
+UserDocumentSearchForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.webapp/src/main/java/com/atp/solicitudes/forms/UserDocumentSearchForm.java
+END

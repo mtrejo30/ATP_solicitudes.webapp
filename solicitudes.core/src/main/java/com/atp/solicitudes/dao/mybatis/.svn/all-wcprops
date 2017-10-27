@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis
+END
+OperadorTransportistaDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/OperadorTransportistaDaoMyBatis.java
+END
+BookingItemDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/BookingItemDaoMyBatis.java
+END
+BLDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/BLDaoMyBatis.java
+END
+StoredProceduresDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/StoredProceduresDaoMyBatis.java
+END
+LineaNavieraDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/LineaNavieraDaoMyBatis.java
+END
+TransportistaDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/TransportistaDaoMyBatis.java
+END
+AgenciaAduanalDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/AgenciaAduanalDaoMyBatis.java
+END
+PaqueteComercialDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/PaqueteComercialDaoMyBatis.java
+END
+ContenedorDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/ContenedorDaoMyBatis.java
+END
+ClienteDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/ClienteDaoMyBatis.java
+END
+RecintoOrigenDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/RecintoOrigenDaoMyBatis.java
+END
+SpecialDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/SpecialDaoMyBatis.java
+END
+BookingDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/BookingDaoMyBatis.java
+END
+TipoRecepcionVacioDaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/TipoRecepcionVacioDaoMyBatis.java
+END
+UserN4DaoMyBatis.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/atp-solicitudes/!svn/ver/53/branches/requerimiento-5/solicitudes.core/src/main/java/com/atp/solicitudes/dao/mybatis/UserN4DaoMyBatis.java
+END

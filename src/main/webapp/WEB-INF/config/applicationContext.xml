@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+>
+	<context:property-placeholder location="classpath:solicitudes.properties"/>
+
+	<!-- Hibernate -->
+    <bean id="sqlSessionFactory_hibernate" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+   		<property name="dataSource"><ref bean="dataSource_sol"/></property>
+
+		<property name="packagesToScan">
+			<list>
+		 		<value>com.objectwave.model</value>
+		 		<value>com.atp.solicitudes.model</value>
+		 	</list>
+		 </property>
+		
+		<property name="configurationClass"><value>org.hibernate.cfg.AnnotationConfiguration</value></property>
+
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>  -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+
+				<prop key="hibernate.default_schema">${sol.database.hibernate.default_schema}</prop>
+				<prop key="hibernate.dialect">${sol.database.hibernate.dialect}</prop>
+
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>  
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.c3p0.min_size">5</prop>
+				<prop key="hibernate.c3p0.max_size">10</prop>
+				<prop key="hibernate.c3p0.timeoutcom.objectwave.model">1800</prop><!-- seconds --> 
+				<prop key="hibernate.c3p0.idle_test_period">1800</prop> <!-- seconds --> 				
+				<prop key="hibernate.c3p0.max_statements">50</prop>
+			</props>
+		</property>
+	</bean>  
+
+	<!-- Template for DAO objects, DAO beans will subclass from here -->
+	<bean id="daoTemplate_hibernate" abstract="true">
+		<property name="sessionFactory">
+			<ref bean="sqlSessionFactory_hibernate"/>
+		</property>
+	</bean>
+
+
+    <!-- MyBatis -->
+	<bean id="sqlSessionFactory_mybatis" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource"><ref bean="dataSource_n4"/></property>
+  		<property name="mapperLocations" value="classpath*:mybatis/**/*.xml" />
+	</bean>
+
+	<bean id="daoTemplate_mybatis" abstract="true">
+		<constructor-arg index="0" ref="sqlSessionFactory_mybatis" />
+	</bean>
+
+
+	<!-- Transaction Manager, Hibernate TM -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory"><ref bean="sqlSessionFactory_hibernate"/></property>
+	</bean>
+
+	<!-- Transaction semantics definition, using Annotations -->
+	<bean id="txAttributeSource" class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource">
+	</bean>
+
+	<!-- Proxy Template for Transaction Manager AOP, Domain Manager beans will subclass from here -->
+	<bean id="txProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"><ref bean="txManager"/></property>
+		<property name="transactionAttributeSource"><ref bean="txAttributeSource"/></property>
+	</bean>
+
+
+	<!-- Message Resource bean -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="cacheSeconds" value="0" />
+	</bean>
+
+	<!-- Validator Bean, usually for form validations -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+	<!--
+		Marshaller for XML and JSON objects
+	-->
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="packagesToScan" value="com.atp.solicitudes.webservice.model" />
+	</bean>
+	
+	<bean id="ShaPasswordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256"/>
+ 	</bean>
+ </beans>

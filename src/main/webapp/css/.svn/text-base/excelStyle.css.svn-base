@@ -1,0 +1,60 @@
+.table
+{
+	border-collapse:collapse;
+}
+
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h2
+{
+	font-size: 24px;
+}
+
+h4
+{
+	font-size: 18px;
+}
+
+.header
+{
+	font-family: Arial, Helvetica, sans-serif; font-size: 20px;
+}
+
+.footer 
+{
+	font-family: "Times New Roman", Times, serif; font-size: 12px;
+}
+
+.errorText 
+{
+	font-family: Arial, Helvetica, Times, serif; font-size: 12px; color: red;
+}
+
+.reportTable
+{
+	font-family: Arial, Helvetica, sans-serif; font-size: 12px;	
+	color: #000000;
+	border-collapse: collapse;
+}
+
+.reportTable td
+{
+	background: #ffd099;
+	border-color: #ffffff;
+}
+
+.reportTable .headerTable td
+{
+	background: #ff8b00;
+	font-weight: bold;
+	border-color: #ffffff;
+}
+
+.reportTable .footerTable
+{
+	border-color: #ffffff;
+	background: #ff8b00;
+}

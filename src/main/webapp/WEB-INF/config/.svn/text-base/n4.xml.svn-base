@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+>
+	<!-- DAOs for Domain Manager for N4 -->
+	<bean id="agenciaAduanalDao" class="com.atp.solicitudes.dao.mybatis.AgenciaAduanalDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="lineaNavieraDao" class="com.atp.solicitudes.dao.mybatis.LineaNavieraDaoMyBatis" parent="daoTemplate_n4" />
+    <bean id="clienteDao" class="com.atp.solicitudes.dao.mybatis.ClienteDaoMyBatis" parent="daoTemplate_n4"/>
+    <bean id="operadorTransportistaDao" class="com.atp.solicitudes.dao.mybatis.OperadorTransportistaDaoMyBatis" parent="daoTemplate_n4"/>	
+	<bean id="transportistaDao" class="com.atp.solicitudes.dao.mybatis.TransportistaDaoMyBatis" parent="daoTemplate_n4"/>
+	<bean id="contenedorDao" class="com.atp.solicitudes.dao.mybatis.ContenedorDaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="userN4Dao" class="com.atp.solicitudes.dao.mybatis.UserN4DaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="specialDao" class="com.atp.solicitudes.dao.mybatis.SpecialDaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="recintoOrigenDao" class="com.atp.solicitudes.dao.mybatis.RecintoOrigenDaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="bookingDao" class="com.atp.solicitudes.dao.mybatis.BookingDaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="bookingItemDao" class="com.atp.solicitudes.dao.mybatis.BookingItemDaoMyBatis" parent="daoTemplate_n4" />
+ 	<bean id="tipoRecepcionVacioDao" class="com.atp.solicitudes.dao.mybatis.TipoRecepcionVacioDaoMyBatis" parent="daoTemplate_n4" />
+	<bean id="storedProceduresDao" class="com.atp.solicitudes.dao.mybatis.StoredProceduresDaoMyBatis" parent="daoTemplate_n4" />
+	<bean id="paqueteComercialDao" class="com.atp.solicitudes.dao.mybatis.PaqueteComercialDaoMyBatis" parent="daoTemplate_ccg" />
+	
+	<!-- DomainManager for N4 -->
+	<bean id="domainManager_n4" class="com.atp.solicitudes.manager.impl.DomainManagerN4Impl">
+	</bean>
+
+	<bean id="sqlSessionFactory_n4" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource"><ref bean="dataSource_n4"/></property>
+  		<property name="mapperLocations" value="classpath*:mybatis/**/*.xml" />
+	</bean>
+
+	<bean id="daoTemplate_n4" abstract="true">
+		<constructor-arg index="0" ref="sqlSessionFactory_n4" />
+	</bean>
+	
+	<bean id="sqlSessionFactory_veh" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource"><ref bean="dataSource_veh"/></property>
+  		<property name="mapperLocations" value="classpath*:mybatis/**/*.xml" />
+	</bean>
+
+	<bean id="daoTemplate_veh" abstract="true">
+		<constructor-arg index="0" ref="sqlSessionFactory_veh" />
+	</bean>
+
+	<bean id="sqlSessionFactory_ccg" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource"><ref bean="dataSource_ccg"/></property>
+  		<property name="mapperLocations" value="classpath*:mybatis/**/*.xml" />
+	</bean>
+
+	<bean id="daoTemplate_ccg" abstract="true">
+		<constructor-arg index="0" ref="sqlSessionFactory_ccg" />
+	</bean>
+
+	<!-- Update Appointment process beans -->
+	<bean id="UpdateSolicitudAppointments" class="com.atp.solicitudes.process.UpdateSolicitudAppointmentProcess">
+		<property name="webServiceUsername" value="${sol.n4.webservice.username}" />
+		<property name="webServiceExternalUserId" value="${sol.n4.webservice.externalUserId}" />
+		
+		<property name="jdbcTemplate"><ref bean="UpdateSolicitudAppointments_JdbcTemplate"></ref></property>
+	</bean>
+
+	<bean id="UpdateSolicitudAppointments_JdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg index="0" ref="dataSource_n4" />
+	</bean>
+
+	<task:scheduled-tasks>
+		<task:scheduled ref="UpdateSolicitudAppointments" method="execute" cron="${sol.process.updateappointments.interval}"></task:scheduled>
+	</task:scheduled-tasks>
+</beans>
