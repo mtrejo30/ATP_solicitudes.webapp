@@ -155,7 +155,7 @@ function editUserClicked() {
 		return;
 	}
 	
-	// retrieve user information from the serverbloqueos_
+	// retrieve user information from the serverbloqueos_hola
 	jQuery.postJSON("rest/bloqueos_/edit-user.json", {
 		id : userId
 	}, editUserClicked_callback);
